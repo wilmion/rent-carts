@@ -1,0 +1,27 @@
+{
+  "name": "rent-carts",
+  "version": "1.0.0",
+  "description": "app para rentar carritos de lujo y pasearse por ahí",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilmion/rent-carts.git"
+  },
+  "keywords": [
+    "carts",
+    "cart",
+    "wilmion",
+    "rent",
+    "rent",
+    "carts"
+  ],
+  "author": "Wilbert Aldair Navarrete Bonilla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wilmion/rent-carts/issues"
+  },
+  "homepage": "https://github.com/wilmion/rent-carts#readme"
+}
