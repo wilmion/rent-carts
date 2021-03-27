@@ -1,8 +1,8 @@
-import React , { lazy , Suspense } from 'react'
-import { BrowserRouter , Route , Switch } from 'react-router-dom'
+import React , { lazy , Suspense } from 'react';
+import { BrowserRouter , Route , Switch } from 'react-router-dom';
 
 //compoents
-
+const Layout = lazy(() => import('../containers/Layout'));
 const Home = lazy(() => import('../pages/Home'));
 
 const App:React.FC = () => {
@@ -10,7 +10,9 @@ const App:React.FC = () => {
         <Suspense fallback={<div />}>
             <BrowserRouter>
                 <Switch>
-                    <Route path="/" exact component={Home} /> 
+                    <Layout>
+                        <Route path="/" exact component={Home} /> 
+                    </Layout>         
                 </Switch>
             </BrowserRouter>
         </Suspense>
