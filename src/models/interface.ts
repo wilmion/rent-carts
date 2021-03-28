@@ -7,7 +7,7 @@ export interface ICart {
     name: string,
     image: string ,
     description: string,
-    mark: 'Susuki',
+    mark: 'Susuki' | 'Toyota',
     price: number,
     creationYear: number,
     owner: string,
@@ -17,9 +17,9 @@ export interface ICart {
     features: {
         doors: number,
         capacity: number,
-        typeTransmission: 'Automatic',
-        typeCart: 'Hatchback',
-        typeFuel: 'Petrol',
+        typeTransmission: 'Automatic' | 'Mecanic',
+        typeCart: 'Hatchback' | 'Sedan' | 'SUV' | 'Pickup',
+        typeFuel: 'Petrol' | 'GNV' | 'Gas',
         cc: number,
         year: number
     },
