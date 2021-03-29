@@ -1,0 +1,20 @@
+@import "../global/variables.scss";
+
+.carts {
+  &-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    box-shadow: rgba($color-oscuro, $alpha: 0.2) 0 2px;
+    &__option {
+      color: $color-oscuro;
+      font-size: 1.3rem;
+      font-weight: 100;
+      &--active {
+        color: $principal-color;
+      }
+    }
+  }
+}

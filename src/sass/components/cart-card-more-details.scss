@@ -1,0 +1,72 @@
+@import "../global/variables.scss";
+
+.cart-card-details {
+  margin: 50px auto;
+  width: 90%;
+  &-header {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    img {
+      width: 100%;
+      height: auto;
+    }
+    &-detail {
+      margin: auto 0;
+      margin-left: 7px;
+      &__mark {
+        color: $secundary-color;
+        font-size: 1.1rem;
+        margin: 3px 0;
+      }
+      &-title {
+        display: flex;
+        margin: 5px 0;
+        &__title {
+          color: black;
+          font-size: 1.5rem;
+          margin-right: 5px;
+        }
+        &__creationYear {
+          color: $color-oscuro;
+          font-size: 1rem;
+          margin-top: auto;
+        }
+      }
+      &__price {
+        color: black;
+        font-size: 1.3rem;
+        margin: 5px 0;
+        font-style: italic;
+        small {
+          color: $color-oscuro;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    &-feature {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__icon {
+        font-size: 1.3rem;
+        margin-right: 5px;
+        color: $color-oscuro;
+      }
+      &__value {
+        color: $color-oscuro;
+        font-size: 1.2rem;
+        font-style: oblique;
+      }
+    }
+    &__prop {
+      color: $color-oscuro;
+      font-size: 1.2rem;
+    }
+  }
+}

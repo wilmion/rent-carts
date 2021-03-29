@@ -1,0 +1,46 @@
+@import "../global/variables.scss";
+
+footer {
+  margin-top: auto;
+}
+
+.footer {
+  background-color: rgb(49, 54, 66);
+  &-section {
+    padding: 10px;
+    border-bottom: 1px solid rgba($color-claro, $alpha: 0.3);
+    &__title {
+      color: rgb(197, 197, 197);
+      font-size: 1.2rem;
+      text-align: center;
+      font-style: italic;
+      transition: 1s;
+      &:hover {
+        color: $color-claro;
+      }
+    }
+  }
+  &-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    &-icon {
+      background-color: $color-oscuro;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      transition: 1s;
+      &__icon {
+        color: $color-claro;
+        font-size: 1.3rem;
+      }
+      &:hover {
+        background-color: #24282c;
+      }
+    }
+  }
+}

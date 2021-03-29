@@ -1,34 +1,61 @@
 @import "../global/variables.scss";
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
-  &__icon-left {
-    color: $color-oscuro;
-    margin-left: 15px;
-  }
-  &__title {
-    color: $color-oscuro;
-    font-size: 1.6rem;
-    text-align: center;
+  &-show {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    &__icon-left {
+      color: $color-oscuro;
+      margin-left: 15px;
+    }
+    &__title {
+      color: $color-oscuro;
+      font-size: 1.6rem;
+      text-align: center;
+    }
+    &-menu {
+      background-color: $principal-color;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+      transition: 1s;
+      &:hover {
+        background-color: $principal-color-hover;
+      }
+      &-icon {
+        color: $color-claro;
+      }
+    }
   }
   &-menu {
+    width: 100%;
+    position: absolute;
+    height: 100vh;
     background-color: $principal-color;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
+    z-index: 99;
+    transform: translateX(-100%);
     transition: 1s;
-    &:hover {
-      background-color: $principal-color-hover;
+    &-close {
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 10px;
+      &__icon {
+        color: $color-claro;
+        font-size: 2rem;
+      }
     }
-    &-icon {
+    &__section {
+      font-size: 1.5rem;
       color: $color-claro;
+      margin: 15px 10px;
+      font-style: italic;
     }
   }
 }
