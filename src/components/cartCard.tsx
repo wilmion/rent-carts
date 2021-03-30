@@ -14,7 +14,7 @@ const cartCard:React.FC<IProps> = (props) => {
     const history = useHistory();
 
     const toogleRoute = ():void => {
-        history.push(`/car/${props._id}`);
+        history.push(`/cart/${props._id}`);
     }
 
     return (

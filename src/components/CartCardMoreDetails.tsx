@@ -6,8 +6,11 @@ import { FaExchangeAlt , FaUserAlt } from 'react-icons/fa';
 import { ICart } from '../models/interface';
 
 import "../sass/components/cart-card-more-details.scss";
+import { useHistory } from 'react-router-dom';
 
 const CartCardMoreDetails:React.FC<ICart> = (props) => {
+
+    const history = useHistory();
 
     const simplifyTransmition = (transmition:'Automatic' | 'Mecanic'):string => {
         let simplify:string;
@@ -25,7 +28,7 @@ const CartCardMoreDetails:React.FC<ICart> = (props) => {
     return (
         <section className="cart-card-details">
             <article className="cart-card-details-header">
-                <img src={props.image} alt={props.name} />
+                <img src={props.image} alt={props.name} onClick={() => history.push('/cart/' + props._id)} />
                 <div className="cart-card-details-header-detail">
                     <p className="cart-card-details-header-detail__mark">{props.mark}</p>
                     <div className="cart-card-details-header-detail-title">

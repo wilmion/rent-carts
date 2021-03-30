@@ -1,0 +1,50 @@
+@import "../global/variables.scss";
+
+.error {
+  position: absolute;
+  width: 90%;
+  background-color: $color-claro;
+  padding: 1px;
+  border-radius: 15px;
+  transform: translateX(-100%);
+  transition: 1s;
+  z-index: 1;
+  &-header {
+    background-color: $color-oscuro;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
+    &__icon {
+      color: red;
+      font-size: 2.5rem;
+      margin-right: 15px;
+    }
+    &__title {
+      color: $color-claro;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+  }
+  &__message {
+    margin: 15px 0;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 1.3rem;
+    font-style: oblique;
+    color: $color-oscuro;
+  }
+  &__close {
+    background-color: red;
+    color: $color-claro;
+    padding: 7px 0;
+    width: 50%;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    margin-left: auto;
+    margin-right: 15px;
+    border: none;
+    display: block;
+    border-radius: 10px;
+  }
+}

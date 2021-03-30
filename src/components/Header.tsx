@@ -25,7 +25,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <section className="header-menu">
+            <section className="header-menu" >
                 <div className="header-menu-close">
                     <AiFillCloseCircle onClick={() => showMenu(-100)} className="header-menu-close__icon" />
                 </div>
@@ -35,7 +35,7 @@ const Header = () => {
                 <p className="header-menu__section" onClick={() => navigateLink( '/carts' )} >Type Carts</p>
                 <p className="header-menu__section" onClick={() => navigateLink( '/about ' )} >About</p>
             </section>
-            <section className="header-show">
+            <section className="header-show" id="header">
                 <BiArrowBack className="header-show__icon-left" size="20px" onClick={() => history.goBack()} ></BiArrowBack>
                 <h3 className="header-show__title">Find your car</h3>
                 <div className="header-show-menu">

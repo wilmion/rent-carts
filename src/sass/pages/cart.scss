@@ -1,0 +1,148 @@
+@import "../global/variables.scss";
+
+.cart-detail {
+  img {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  }
+  &__mark {
+    color: $secundary-color;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  &-title {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    &__title {
+      color: black;
+      font-size: 2rem;
+      margin-right: 10px;
+      font-weight: 700;
+    }
+    &__year {
+      color: $color-oscuro;
+      font-size: 1.1rem;
+    }
+  }
+  &__price {
+    color: black;
+    font-size: 1.3rem;
+    text-align: center;
+    font-style: italic;
+    small {
+      color: $color-oscuro;
+      font-size: 1.1rem;
+    }
+  }
+  &-features {
+    width: 80%;
+    margin: 10px auto;
+    &-file {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        &__icon {
+          font-size: 1.3rem;
+          color: $color-oscuro;
+          margin-right: 10px;
+        }
+        &__value {
+          color: $color-oscuro;
+          font-size: 1.1rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  &-desc {
+    width: 85%;
+    margin: 0 auto;
+    &__title {
+      margin: 15px 0;
+      font-size: 1.7rem;
+      color: $color-oscuro;
+      font-weight: 700;
+      text-align: center;
+    }
+    &-content {
+      margin: 5px 0;
+      height: 30px;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      &__content {
+        font-size: 1.1rem;
+        text-align: center;
+        color: $color-oscuro;
+        line-height: 12px;
+      }
+    }
+  }
+  &-details {
+    width: 90%;
+    margin: 7px auto;
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+      margin: 15px 0;
+      &__title {
+        color: $color-oscuro;
+        font-size: 1.4rem;
+      }
+      &__line {
+        background-color: rgba($color-oscuro, $alpha: 0.5);
+        width: 60%;
+        margin-left: 10px;
+        height: 2px;
+      }
+    }
+    &-body {
+      &-item {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+        &__icon {
+          font-size: 1.5rem;
+          margin-right: 10px;
+          color: $color-oscuro;
+        }
+        &__prev {
+          font-size: 1.2rem;
+          color: rgba($color-oscuro, $alpha: 0.5);
+          margin-right: 10px;
+        }
+        &__post {
+          font-size: 1.2rem;
+          color: $color-oscuro;
+        }
+      }
+    }
+  }
+  &__submit {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 0;
+    width: 80%;
+    color: $color-claro;
+    background-color: $principal-color;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 1s;
+    &:hover {
+      background-color: $principal-color-hover;
+    }
+  }
+}

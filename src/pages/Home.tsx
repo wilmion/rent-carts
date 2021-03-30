@@ -1,6 +1,5 @@
 import React , { useState } from 'react';
 import { FaFilter } from 'react-icons/fa'
-import { useGet } from '../hooks/apiConsumer'
 import searchValues from '../utils/searchValues';
 import { cycleElement } from '../utils/cycleElement';
 
@@ -10,16 +9,22 @@ import Filter from '../components/Filter';
 import CartCard from '../components/cartCard';
 import Loading from '../components/Loading';
 
-import { ICart } from '../models/interface'
+import { ICart ,IState } from '../models/interface'
+import { connect } from 'react-redux';
 
 import "../sass/pages/home.scss";
 
 let searching:boolean = false;
 
-const Home:React.FC = () => {
+interface IProps {
+    carts:ICart[]
+}
+
+const Home:React.FC<IProps> = (props) => {
     const [ showFilters , setShowFilters ] = useState<boolean>(false);
 
-    const [response , setResponse , res , error ] = useGet('carts' , [] );
+    const [response , setResponse ] = useState<ICart[]>([]);
+    const res = props.carts;
 
     const toogleFilterCc = (e:any):void => {
         cycleElement(
@@ -47,7 +52,7 @@ const Home:React.FC = () => {
 
     const showDatas = ():JSX.Element => {
         let data:ICart[] = []
-        if(showFilters || searching) {
+        if(showFilters || searching ) {
             data = response;
         } else {
             data = [res[0] , res[1]];
@@ -76,10 +81,14 @@ const Home:React.FC = () => {
             }
             <section className="home-recomend">
                 <h2 className="home-recomend__title">Featured Car</h2>
-                {res?  showDatas() : <Loading/>}
+                {res && res.length > 0?  showDatas() : <Loading/>}
             </section>
         </>
     )
 }
 
-export default Home;
+const mapStateToProps = (state:IState) => ({
+    carts: state.carts
+})
+
+export default connect(mapStateToProps , null)(Home);
