@@ -24,3 +24,18 @@ export const GET = async (component:string , id?:string , querys?:string , token
 
     return [data , error];
 }
+export const POST = async (component:string , body:any , token:string , id?:string):Promise<[any , null | string]> => {
+    let data:any = null;
+    let error:null | string = null;
+    const URL:string = `${API}/${component}${id !== '' && id? `/${id}` : ''}`;
+
+    const { data:response } = await axios.post<IApiResponse>(URL , body );
+
+    data = response.data;
+    error = response.error;
+
+    return [
+        data,
+        error
+    ]
+}

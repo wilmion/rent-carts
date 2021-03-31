@@ -6,6 +6,7 @@ const Layout = lazy(() => import('../containers/Layout'));
 const Home = lazy(() => import('../pages/Home'));
 const Carts = lazy(() => import('../pages/Carts'));
 const Cart = lazy(() => import('../pages/Cart'));
+const Login = lazy(() => import('../pages/Login'));
 
 const App:React.FC = () => {
     return (
@@ -16,7 +17,9 @@ const App:React.FC = () => {
                         <Route path="/" exact component={Home} /> 
                         <Route path="/carts" exact component={Carts} /> 
                         <Route path="/cart/:id" exact component={Cart} /> 
-                    </Layout>         
+                        <Route path="/login" exact component={Login} /> 
+                    </Layout>
+                    
                 </Switch>
             </BrowserRouter>
         </Suspense>
