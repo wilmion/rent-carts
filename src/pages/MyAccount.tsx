@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { IState } from '../models/interface';
+import { IState, IUser } from '../models/interface';
 
 import "../sass/pages/myAccount.scss";
 
-const MyAccount = () => {
+interface IProps {
+    user: IUser
+}
+
+const MyAccount:React.FC<IProps> = (props) => {
     return (
         <section className="my-profile">
 
