@@ -29,10 +29,14 @@ export const POST = async (component:string , body:any , token:string , id?:stri
     let error:null | string = null;
     const URL:string = `${API}/${component}${id !== '' && id? `/${id}` : ''}`;
 
-    const { data:response } = await axios.post<IApiResponse>(URL , body );
-
-    data = response.data;
-    error = response.error;
+    try {
+        const { data:response } = await axios.post<IApiResponse>(URL , body , {
+            headers: { Authorization: token }
+        });
+        data = response.data;
+    }catch(e){
+        error = e.message;
+    }
 
     return [
         data,

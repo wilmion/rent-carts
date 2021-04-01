@@ -35,5 +35,13 @@ export interface IAction {
 export interface IState {
     carts:ICart[];
     cart:ICart[];
-    user:null | string
+    user:null | IUser
+}
+export interface IUser {
+    username:string;
+    fullName:string;
+    email:string;
+    cart: Array<any>;
+    rentedCarts: Array<any>;
+    rentalCarts: Array<any>;
 }

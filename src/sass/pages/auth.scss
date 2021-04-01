@@ -71,12 +71,10 @@
       color: $color-oscuro;
       font-weight: 900;
       border-radius: 15px;
+      transition: 1s;
+      &:disabled {
+        background-color: rgba($color-claro, $alpha: 0.3);
+      }
     }
   }
-}
-.header {
-  display: none;
-}
-footer {
-  display: none;
 }

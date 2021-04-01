@@ -1,1 +1,1 @@
-export type TAction = "SET_CARTS" | 'ADD_TO_CART'
+export type TAction = "SET_CARTS" | 'ADD_TO_CART' | 'LOG_IN'
