@@ -15,13 +15,16 @@ const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 const MyAccount = lazy(() => import('../pages/MyAccount'));
 
+let loggeaded:boolean = false
+
 const App:React.FC<{user:IUser | null}> = (props) => {
 
     const token:string = getCookie('token');
     const id:string = getCookie('id')
 
     const logged = props.user;
-    if(token !== '' && id !== '') {
+    if(token !== '' && id !== '' &&  !loggeaded) {
+        loggeaded = true;
         logIn( token , id );
     }
 

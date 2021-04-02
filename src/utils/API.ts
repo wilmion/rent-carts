@@ -43,3 +43,22 @@ export const POST = async (component:string , body:any , token:string , id?:stri
         error
     ]
 }
+export const PATCH = async (component:string , body:any , token:string , id?:string):Promise<[any , null | string]> => {
+    let data:any = null;
+    let error:null | string = null;
+    const URL:string = `${API}/${component}${id !== '' && id? `/${id}` : ''}`;
+
+    try {
+        const { data:response } = await axios.patch<IApiResponse>(URL , body , {
+            headers: { Authorization: token }
+        });
+        data = response.data;
+    }catch(e){
+        error = e.message;
+    }
+
+    return [
+        data,
+        error
+    ]
+}
