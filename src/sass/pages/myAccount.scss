@@ -1,4 +1,81 @@
 @import "../global/variables.scss";
 
 .my-profile {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      border: none;
+      color: white;
+      padding: 5px 0;
+      width: 30%;
+      margin: 20px 10px;
+      display: block;
+      font-style: oblique;
+      font-weight: 700;
+    }
+    &__logOut {
+      background-color: $principal-color-hover;
+    }
+    &__admin {
+      background-color: $secundary-color;
+    }
+  }
+  &__title {
+    text-align: center;
+    font-size: 1.7rem;
+    margin: 15px 0;
+    color: $principal-color;
+  }
+  &-photo {
+    font-size: 7rem;
+    display: block;
+    width: 20%;
+    color: $color-oscuro;
+    margin: 0 auto;
+  }
+  &__fullname {
+    text-align: center;
+    font-size: 1.2rem;
+    color: $color-oscuro;
+    margin: 10px 0;
+    font-style: oblique;
+  }
+  &__section {
+    margin: 15px 10px;
+    font-size: 1.6rem;
+  }
+  &-table {
+    width: 90%;
+    margin: 0 auto;
+    &-file {
+      display: grid;
+      grid-template-columns: 20% 30% 50%;
+      margin: 15px 0;
+      &-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $color-oscuro;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        &__icon {
+          color: $color-claro;
+          font-size: 1.6rem;
+        }
+      }
+      &__key {
+        font-size: 1.5rem;
+        color: rgba($color-oscuro, $alpha: 0.5);
+        margin: auto 0;
+      }
+      &__value {
+        font-size: 1.3rem;
+        color: $color-oscuro;
+        margin: auto 0;
+      }
+    }
+  }
 }

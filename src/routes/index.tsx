@@ -1,5 +1,7 @@
 import React , { lazy , Suspense } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter , Route , Switch } from 'react-router-dom';
+import { IState, IUser } from '../models/interface';
 
 import { getCookie } from '../utils/getCookie';
 import { logIn } from '../utils/redux/login';
@@ -11,14 +13,15 @@ const Carts = lazy(() => import('../pages/Carts'));
 const Cart = lazy(() => import('../pages/Cart'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
+const MyAccount = lazy(() => import('../pages/MyAccount'));
 
-const App:React.FC = () => {
+const App:React.FC<{user:IUser | null}> = (props) => {
 
     const token:string = getCookie('token');
     const id:string = getCookie('id')
 
-    const logged:boolean = token !== '' && id !== '';
-    if(logged) {
+    const logged = props.user;
+    if(token !== '' && id !== '') {
         logIn( token , id );
     }
 
@@ -32,6 +35,7 @@ const App:React.FC = () => {
                         <Route path="/cart/:id" exact component={Cart} /> 
                         <Route path="/login" exact component={logged? Home : Login} /> 
                         <Route path="/register" exact component={logged? Home : Register} /> 
+                        <Route path="/profile" exact component={MyAccount} /> 
                     </Layout>
                     
                 </Switch>
@@ -40,4 +44,8 @@ const App:React.FC = () => {
     )
 }
 
-export default App; 
+const mapStateToProps = (state:IState) => ({
+    user: state.user
+})
+
+export default connect( mapStateToProps , null )(App); 

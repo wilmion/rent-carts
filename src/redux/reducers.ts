@@ -26,6 +26,11 @@ export const reducer = ( state:IState | undefined , action:IAction ):IState => {
                     ...state,
                     user: action.payload
                 }
+            case 'LOG_OUT': 
+                return {
+                    ...state,
+                    user: null
+                }
             default:
                 return state;
         }

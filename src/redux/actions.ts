@@ -12,3 +12,11 @@ export const login = (payload:IUser):IAction => ({
     type: 'LOG_IN', 
     payload
 })
+export const log_out = ():IAction => {
+    document.cookie = 'token=';
+    document.cookie = 'id=';
+    return {
+        type: 'LOG_OUT',
+        payload: null
+    }
+}
