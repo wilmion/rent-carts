@@ -38,7 +38,8 @@ const App:React.FC<{user:IUser | null}> = (props) => {
                         <Route path="/cart/:id" exact component={Cart} /> 
                         <Route path="/login" exact component={logged? Home : Login} /> 
                         <Route path="/register" exact component={logged? Home : Register} /> 
-                        <Route path="/profile" exact component={MyAccount} /> 
+                        <Route path="/profile" exact component={logged? MyAccount : Login} /> 
+                        
                     </Layout>
                     
                 </Switch>

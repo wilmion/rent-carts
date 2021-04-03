@@ -9,7 +9,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import ErrorWindow from '../components/ErrorWindow';
 import Loading from '../components/Loading';
 
-import { PATCH } from '../utils/API';
+import { PATCH , POST } from '../utils/API';
 import { getCookie } from '../utils/getCookie';
 
 import { IAction, IState, IUser } from '../models/interface';
@@ -120,7 +120,19 @@ const MyAccount:React.FC<IProps> = (props) => {
             return null;
         }
 
+        
+
         if(key === 'password') {
+            const [ dataAuth , errorAuth ] = await POST('auth' , { email:user.email , password: data[i].value } , 'NO TOKEN');
+            document.cookie = `token=${dataAuth.token}`;
+            document.cookie = `id=${dataAuth.id}`;
+
+            if(errorAuth){
+                setError('No auth!')
+                setLoading(false)
+                return null;
+            }
+
             setLoading(false)
             return null;
         }
@@ -183,6 +195,7 @@ const MyAccount:React.FC<IProps> = (props) => {
                     
             </section>
             <h3 className="my-profile__section">Rented Carts</h3>
+            
             <h3 className="my-profile__section">Rental Carts</h3>
         </section>
     )
