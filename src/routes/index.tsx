@@ -14,7 +14,7 @@ const Cart = lazy(() => import('../pages/Cart'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 const MyAccount = lazy(() => import('../pages/MyAccount'));
-const AdminProducts = lazy(() => import('../pages/AdminProducts'));
+const Admin = lazy(() => import('../containers/Admin'));
 
 let loggeaded:boolean = false
 
@@ -40,7 +40,7 @@ const App:React.FC<{user:IUser | null}> = (props) => {
                         <Route path="/login" exact component={logged? Home : Login} /> 
                         <Route path="/register" exact component={logged? Home : Register} /> 
                         <Route path="/profile" exact component={logged? MyAccount : Login} /> 
-                        <Route path="/admin" exact component={AdminProducts} /> 
+                        <Route path="/admin/:section" exact component={Admin} /> 
                     </Layout>
                     
                 </Switch>

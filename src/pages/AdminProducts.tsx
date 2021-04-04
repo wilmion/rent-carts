@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { AiFillEdit } from 'react-icons/ai';
 import { BsFillTrashFill } from 'react-icons/bs';
+import Admin from '../containers/Admin';
 import Loading from '../components/Loading';
 import CartCardMoreDetails from '../components/CartCardMoreDetails';
 import WarningWindows from '../components/WarningWindows';
@@ -88,8 +89,7 @@ const AdminProducts:React.FC<IProps> = (props) => {
                         </button>
                     </section>
                 </section>
-            )}
-            
+            )}     
         </section>
     )
 }

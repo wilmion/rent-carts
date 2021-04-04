@@ -166,7 +166,7 @@ const MyAccount:React.FC<IProps> = (props) => {
             {error && <ErrorWindow message={error} callback={() => setError(null)} />}
             <section className="my-profile-header">
                 <button className="my-profile-header__logOut" onClick={handleLogOut} >Log Out</button>
-                { user.email === 'wilmion92@gmail.com' ? <button className="my-profile-header__admin" onClick={() => history.push('/admin')} >Admin</button> : <div></div> }
+                { user.email === 'wilmion92@gmail.com' ? <button className="my-profile-header__admin" onClick={() => history.push('/admin/products')} >Admin</button> : <div></div> }
             </section>
             <h2 className="my-profile__title"> HI {user.username.toUpperCase()} </h2>
 

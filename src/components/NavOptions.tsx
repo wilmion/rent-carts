@@ -6,7 +6,8 @@ import "../sass/components/nav-option.scss";
 
 interface IProps {
     options:string[];
-    callback:(option:string) => any
+    callback:(option:string) => any;
+    activeIndex?:number
 }
 
 const navOptions:React.FC<IProps> = (props) => {
@@ -23,12 +24,15 @@ const navOptions:React.FC<IProps> = (props) => {
             }
         )
     }
+    const activeDefault = ():number => {
+        return props.activeIndex? props.activeIndex : 0;
+    } 
 
     return (
         <section className="nav-options">
             {props.options.map((o , i:number) => (
                 <h5 
-                    className={`nav-options__option ${i === 0 && "nav-options__option--active"}`} 
+                    className={`nav-options__option ${i === activeDefault() && "nav-options__option--active"}`} 
                     key={o} 
                     onClick={toogleOption}
                 >{o}</h5>

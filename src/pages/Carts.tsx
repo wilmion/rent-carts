@@ -8,8 +8,6 @@ import { connect } from 'react-redux';
 
 import { ICart, IState } from '../models/interface';
 
-import "../sass/pages/carts.scss";
-
 let all:boolean = true;
 
 interface IProps {
