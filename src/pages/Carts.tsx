@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 import CartCardMoreDetail from '../components/CartCardMoreDetails';
 import Loading from '../components/Loading';
+import NavOptions from '../components/NavOptions';
 
-import { cycleElement } from '../utils/cycleElement';
 import { connect } from 'react-redux';
 
 import { ICart, IState } from '../models/interface';
@@ -21,21 +21,11 @@ const Carts:React.FC<IProps> = (props) => {
     const [response , setResponse] = useState<ICart[]>([]);
     const res = props.carts;
 
-    const toogleOption = (e:any):void => {
-        cycleElement(
-            e.target , 
-            '.carts-options' , 
-            'carts-options__option' , 
-            'carts-options__option carts-options__option--active' ,
-            (e) => {
-                const option:string = e.innerText;
+    const toogleOption = (option:string):void => {
+        all = (option === 'All Cars');
+        const data:ICart[] = !all? res.filter((c) => c.features.typeCart === option) : res;
 
-                all = (option === 'All Cars');
-                const data:ICart[] = !all? res.filter((c) => c.features.typeCart === option) : res;
-
-                setResponse(data);
-            }
-        )
+        setResponse(data);
     }
 
     const renderData = ():JSX.Element => {
@@ -58,13 +48,7 @@ const Carts:React.FC<IProps> = (props) => {
 
     return (
         <section className="carts">
-            <section className="carts-options">
-                <h5 className="carts-options__option carts-options__option--active" onClick={toogleOption}>All Cars</h5>
-                <h5 className="carts-options__option" onClick={toogleOption} >Hatchback</h5>
-                <h5 className="carts-options__option" onClick={toogleOption}>Sedan</h5>
-                <h5 className="carts-options__option" onClick={toogleOption}>SUV</h5>
-                <h5 className="carts-options__option" onClick={toogleOption}>Pickup</h5>
-            </section>
+            <NavOptions options={['All Cars','Hatchback','Sedan','SUV','Pickup']} callback={toogleOption} />
             {res && res.length > 0? renderData() : <Loading />}
         </section>
     )
