@@ -6,24 +6,29 @@ import { AiFillEdit } from 'react-icons/ai';
 import { BsFillTrashFill } from 'react-icons/bs';
 import Loading from '../components/Loading';
 import CartCardMoreDetails from '../components/CartCardMoreDetails';
+import WarningWindows from '../components/WarningWindows';
+import ErrorWindow from '../components/ErrorWindow';
 
 import searchValues from '../utils/searchValues';
+import { DELETE } from '../utils/API';
+import { getCookie } from '../utils/getCookie';
 
 import { ICart, IState } from '../models/interface'
 
 import "../sass/pages/admin-products.scss";
 
+
 interface IProps {
     cars:ICart[]
 }
-
-let cb:() => void = () => null;
 
 const AdminProducts:React.FC<IProps> = (props) => {
 
     const [cars , setCars] = useState<ICart[]>(props.cars);
     const [warning , setWarning] = useState<string | null>(null)
+    const [ error , setError] = useState<string | null>(null);
     const [loading , setLoading] = useState<boolean>(false);
+    const [cb , setCb] = useState<() => any>(() => null);
     const history = useHistory();
 
     const handleSearch = (e:any):void => {
@@ -38,13 +43,20 @@ const AdminProducts:React.FC<IProps> = (props) => {
 
     const handleDelete = (id:string):void => {
         setWarning('Are you a secure?')
-        const callBack = () => {
+        const callBack = async () => {
             setLoading(true);
             setWarning(null);
-            //DELETE METHOD(before...)  
+            
+            const token:string = getCookie('token');
+
+            const [ data , error ] = await DELETE('carts' , token , id);
+            if(error){
+                setError('Internal Server Error');
+            }
+
             setLoading(false); 
         }
-        cb = () => callBack;
+        setCb(() => callBack);
     }
 
     if(loading){
@@ -53,6 +65,8 @@ const AdminProducts:React.FC<IProps> = (props) => {
 
     return (
         <section className="admin-products">
+            {warning && <WarningWindows message={warning} cb={cb} /> }
+            {error && <ErrorWindow message={error} callback={() => setError(null)}  />}
             <section className="admin-products-header">
                 <input type="text" className="admin-products-header__search" onInput={handleSearch} placeholder="Find Product" />
                 <Link to="/admin/add/newProduct" className="admin-products-header__add">Add Product</Link>

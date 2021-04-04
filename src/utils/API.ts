@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { IApiResponse } from '../models/interface'
 const API = 'https://rent-carts.herokuapp.com/api';
 
@@ -54,6 +54,23 @@ export const PATCH = async (component:string , body:any , token:string , id?:str
         });
         data = response.data;
     }catch(e){
+        error = e.message;
+    }
+
+    return [
+        data,
+        error
+    ]
+}
+export const DELETE = async (component:string , token:string , id:string):Promise<[any , string | null]> => {
+    let data:any = null;
+    let error:null | string = null;
+    const URL:string = `${API}/${component}/${id}`;
+
+    try {
+        const { data:dataApi }  = await axios.delete<IApiResponse>(URL , {headers: {'Authorization' : `Bearer ${token}`}});
+        data = dataApi.data.data;
+    }catch(e) {
         error = e.message;
     }
 
