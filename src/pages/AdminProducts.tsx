@@ -1,10 +1,10 @@
 import React,{useState} from 'react';
 import { connect } from 'react-redux'
+import { setCarts } from '../redux/actions';
 
 import { Link, useHistory } from 'react-router-dom'
 import { AiFillEdit } from 'react-icons/ai';
 import { BsFillTrashFill } from 'react-icons/bs';
-import Admin from '../containers/Admin';
 import Loading from '../components/Loading';
 import CartCardMoreDetails from '../components/CartCardMoreDetails';
 import WarningWindows from '../components/WarningWindows';
@@ -14,13 +14,14 @@ import searchValues from '../utils/searchValues';
 import { DELETE } from '../utils/API';
 import { getCookie } from '../utils/getCookie';
 
-import { ICart, IState } from '../models/interface'
+import { IAction, ICart, IState } from '../models/interface'
 
 import "../sass/pages/admin-products.scss";
 
 
 interface IProps {
-    cars:ICart[]
+    cars:ICart[],
+    setCarts:(payload:ICart[]) => IAction
 }
 
 const AdminProducts:React.FC<IProps> = (props) => {
@@ -55,6 +56,8 @@ const AdminProducts:React.FC<IProps> = (props) => {
                 setError('Internal Server Error');
             }
 
+            document.location.href = '/admin/products';
+            
             setLoading(false); 
         }
         setCb(() => callBack);
@@ -98,8 +101,4 @@ const mapStateToProps = (state:IState) => ({
     cars:state.carts
 })
 
-const mapDispacthToProps = {
-
-}
-
-export default connect(mapStateToProps , mapDispacthToProps)(AdminProducts)
+export default connect(mapStateToProps , null)(AdminProducts)

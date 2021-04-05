@@ -25,7 +25,7 @@ const mampping = [
     {
         type: 'input',
         input: 'number',
-        prop: 'Price' ,
+        prop: 'price' ,
         title: 'Price of car:'
     },
     {
@@ -49,7 +49,7 @@ const mampping = [
     {
         type: 'input',
         input: 'text',
-        prop: 'Address' ,
+        prop: 'address' ,
         title: 'Location:'
     },
     {
