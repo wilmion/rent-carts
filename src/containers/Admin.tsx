@@ -3,6 +3,7 @@ import { useHistory , useParams } from 'react-router';
 
 import NavOptions from '../components/NavOptions';
 import AdminProducts from '../pages/AdminProducts';
+import AdminUsers from '../pages/AdminUsers';
 
 interface IProps {
     activeDefault:number;
@@ -30,9 +31,8 @@ const Admin:React.FC<IProps> = (props) => {
     return (
         <section className="admin">
             <NavOptions callback={(option:string) => history.push('/admin/' + option.toLowerCase())} options={['Products' , 'Users' , 'Payments']} activeIndex={getActiveIndex()} />
-            {
-                getActiveIndex() === 0 && <AdminProducts />
-            }
+            {getActiveIndex() === 0 && <AdminProducts />}
+            {getActiveIndex() === 1 && <AdminUsers />}
         </section>
     )
 }

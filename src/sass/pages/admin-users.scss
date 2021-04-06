@@ -1,0 +1,84 @@
+@import "../global/variables.scss";
+
+.admin-users {
+  &__title {
+    font-size: 1.7rem;
+    margin: 15px 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &-contain {
+    width: 90%;
+    margin: 15px auto;
+    &-item {
+      &-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-info {
+          width: 50%;
+          &__image {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            overflow: hidden;
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            //border: $color-oscuro 5px solid;
+            &--icon {
+              font-size: 8rem;
+            }
+          }
+          &__name {
+            font-size: 1.3rem;
+            color: $color-oscuro;
+            text-align: center;
+            margin: 10px 0;
+          }
+        }
+        &-cars {
+          &__title {
+            color: $color-oscuro;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin: 5px 0;
+          }
+          &__paragrafth {
+            color: rgba($color-oscuro, $alpha: 0.5);
+            font-size: 1rem;
+            margin: 2px 3px;
+          }
+          &__showMore {
+            color: $terciario-color-hover;
+            font-size: 1rem;
+            margin: 2px 4px;
+          }
+        }
+      }
+      &__delete {
+        border: none;
+        width: 50%;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $principal-color;
+        color: $color-claro;
+        border-radius: 15px;
+        margin: 15px auto;
+        &--icon {
+          font-size: 1.8rem;
+          margin-right: 15px;
+          color: $color-claro;
+        }
+        &--text {
+          font-size: 1.3rem;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
