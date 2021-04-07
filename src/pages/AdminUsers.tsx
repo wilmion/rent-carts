@@ -2,6 +2,9 @@ import React , { useState , useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FaTrash , FaUserSecret } from 'react-icons/fa';
+import WarningWindow from '../components/WarningWindows';
+import ErrorWindow from '../components/ErrorWindow';
+import Loading from '../components/Loading';
 
 import { GET , DELETE } from '../utils/API';
 import { getCookie } from '../utils/getCookie';
@@ -18,15 +21,17 @@ const AdminUsers:React.FC = () => {
 
     useEffect(() => {
         const fetchD = async () => {
+            setLoading(true);
             const token:string = getCookie('token');
             const [res , err] = await GET('users' , '' , '' , token );
 
             setUsers(res);
+            setLoading(false);
         }
         fetchD();
     }, [])
 
-    const handleDelete = ({_id}:any):void => {
+    const handleDelete = ({_id , email}:any):void => {
         setWarning('are you secure');
 
         const callback = async ():Promise<void> => {
@@ -35,15 +40,32 @@ const AdminUsers:React.FC = () => {
 
             console.log(_id) //print ID
 
-            //DELETE LOGIC
+            const token:string = getCookie('token');
+
+            const [ data , error ] = await DELETE('users' , token , _id);
 
             setLoading(false);
+
+            if(error) {
+                setError('Internal server error')
+                return null
+            }
+            const usersV:IUser[] = users;
+
+            setUsers(usersV.filter(u => u.email !== email));
+            
         } 
         setCB(() => callback);
     }   
 
+    if(loading) {
+        return <Loading />
+    }
+
     return (
         <section className="admin-users">
+            {error && <ErrorWindow message={error} callback={() => setError(null)} />}
+            {warning && <WarningWindow message={warning} cb={cb} />}
             <h2 className="admin-users__title">Users:</h2>
             <section className="admin-users-contain">
                 {users.map(u => (
