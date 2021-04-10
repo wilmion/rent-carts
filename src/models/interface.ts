@@ -27,7 +27,17 @@ export interface ICart {
     },
     timeUsed: number
 }
-
+export interface IPayment {
+    _id:string;
+    method:string,
+    data:any;
+    dataEncrypt:string;
+    image:string;
+}
+export interface IPaymentApi{
+    _id:string;
+    data:string;
+}
 export interface IAction {
     type: TAction,
     payload: any
@@ -35,7 +45,8 @@ export interface IAction {
 export interface IState {
     carts:ICart[];
     cart:ICart[];
-    user:null | IUser
+    payments: IPaymentApi[];
+    user:null | IUser;
 }
 export interface IUser {
     username:string;

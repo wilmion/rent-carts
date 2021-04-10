@@ -21,6 +21,11 @@ export const reducer = ( state:IState | undefined , action:IAction ):IState => {
                     ...state,
                     cart: [...state.cart , action.payload]
                 }
+            case 'SET_PAYMENTS':
+                return {
+                    ...state,
+                    payments: action.payload
+                };
             case 'LOG_IN': 
                 return {
                     ...state,

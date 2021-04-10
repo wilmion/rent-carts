@@ -1,6 +1,7 @@
 const path = require('path');
 const CssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry : './src/index.tsx',
@@ -32,6 +33,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new Dotenv(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'public/index.html'
@@ -39,7 +41,7 @@ module.exports = {
         new CssExtractPlugin({
             filename: 'css/[fullhash].css',
             linkType: 'text/css'
-        })
+        }),    
     ],
     devServer: {
         port: 8080,

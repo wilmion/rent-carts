@@ -10,7 +10,8 @@ import App from './routes/index';
 const initialState:IState = {
     carts: [],
     cart: [],
-    user: null
+    user: null,
+    payments: []
 }
 
 export const store = createStore(reducer , initialState);

@@ -1,19 +1,24 @@
 import React from 'react'
 import { useHistory , useParams } from 'react-router';
+import { connect } from 'react-redux';
 
 import NavOptions from '../components/NavOptions';
 import AdminProducts from '../pages/AdminProducts';
 import AdminUsers from '../pages/AdminUsers';
 import AdminPayments from '../pages/AdminPayments';
 
+import { IState, IUser } from '../models/interface';
+
 interface IProps {
-    activeDefault:number;
+    user:IUser;
 }
 
 const Admin:React.FC<IProps> = (props) => {
 
     const params = useParams<{section:string}>()
     const history = useHistory()
+
+    if(props.user && props.user.email !== "wilmion92@gmail.com") {history.push('/');}
     
     const getActiveIndex = ():number => {
         switch(params.section) {
@@ -39,4 +44,8 @@ const Admin:React.FC<IProps> = (props) => {
     )
 }
 
-export default Admin
+const mapStateToProps = (state:IState) => ({
+    user: state.user
+})
+
+export default connect( mapStateToProps , null )(Admin)
