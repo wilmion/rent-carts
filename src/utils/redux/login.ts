@@ -8,8 +8,6 @@ export const logIn = async (token:string , id:string):Promise<void> => {
         const [ data , error ] = await GET('users' , id ,'' , token);
         
         store.dispatch(login(data));
-
-        console.log(data)
     }catch(e) {
         logIn(token , id);
     }
