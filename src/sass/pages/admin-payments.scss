@@ -1,5 +1,52 @@
 @import "../global/variables.scss";
 
 .admin-payments {
-    
+  &__title {
+    font-size: 1.6rem;
+    color: $color-oscuro;
+    margin-left: 5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-weight: 700;
+  }
+  &-contain {
+    width: 90%;
+    margin: 10px auto;
+    &-item {
+      margin: 15px auto;
+      &__image {
+        width: 60%;
+        margin: 0 auto;
+        img {
+          width: 90%;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+      &-information {
+        &__title {
+          font-size: 1.7rem;
+          color: $color-oscuro;
+          margin: 10px 0;
+          text-align: center;
+        }
+        &__data {
+          font-size: 1.2rem;
+          color: $color-oscuro;
+          font-style: italic;
+          text-align: center;
+        }
+        &__edit {
+          background-color: $terciario-color;
+          color: $color-claro;
+          font-size: 1.4rem;
+          padding: 10px 0;
+          border: none;
+          width: 80%;
+          margin: 10px auto;
+          display: block;
+        }
+      }
+    }
+  }
 }
