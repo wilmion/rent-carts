@@ -1,10 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import crypto from 'crypto-js';
+
 
 import Loading from '../components/Loading';
 
-import { IState , IPayment, IPaymentApi } from '../models/interface'
+import { IState , IPayment, IPaymentApi } from '../models/interface';
+
+import { decrypt } from '../utils/decrypt';
 
 import "../sass/pages/admin-payments.scss";
 import { useHistory } from 'react-router-dom';
@@ -26,12 +28,7 @@ const AdminPayments:React.FC<IProps> = (props) => {
     let payments:IPayment[] = [];
 
     paymentsAPI.forEach(p => {
-        const data:IPayment = JSON.parse(crypto.AES.decrypt( p.data , process.env.CRYPTO_SECRET ).toString(crypto.enc.Utf8))
-        payments.push({
-            _id: p._id,
-            dataEncrypt: p.data,
-            ...data
-        })
+        payments.push(decrypt(p , process.env.CRYPTO_SECRET));
     })
 
     if(payments.length === 0) return <Loading></Loading>

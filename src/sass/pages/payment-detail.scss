@@ -1,4 +1,68 @@
 @import "../global/variables.scss";
 
 .payment-detail {
+  &__title {
+    font-size: 1.8rem;
+    text-align: center;
+    color: $color-oscuro;
+    margin: 15px 0;
+    font-weight: 700;
+  }
+  img {
+    width: 60%;
+    height: auto;
+    margin: 5px auto;
+    display: block;
+  }
+  &__section-title {
+    font-size: 1.5rem;
+    color: $color-oscuro;
+    margin: 10px auto;
+    margin-left: 10px;
+    font-style: oblique;
+  }
+  &-contain {
+    width: 90%;
+    margin: 5px auto;
+    &-prop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+      &__key {
+        border: $color-oscuro solid 1px;
+        color: $color-oscuro;
+        background-color: gainsboro;
+        width: 30%;
+        height: 30px;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &__input {
+        width: 70%;
+        height: 30px;
+        font-size: 1.1rem;
+        padding: 5px;
+        border-radius: 0;
+        border: $color-oscuro solid 1px;
+        border-left: none;
+      }
+    }
+    &__button {
+      margin: 15px auto;
+      display: block;
+      width: 50%;
+      color: $color-claro;
+      background-color: $terciario-color;
+      border: none;
+      font-size: 1.2rem;
+      padding: 10px 0;
+      transition: 1s;
+      &:hover {
+        background-color: $terciario-color-hover;
+      }
+    }
+  }
 }
