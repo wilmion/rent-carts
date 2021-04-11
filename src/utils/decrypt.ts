@@ -10,5 +10,5 @@ export const decrypt = (data:any , secret:string):any => {
         ...dates
     }
 
-    return dates;
+    return dates
 }
