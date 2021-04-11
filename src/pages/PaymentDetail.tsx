@@ -10,13 +10,14 @@ import { decrypt } from '../utils/decrypt';
 import { PATCH } from '../utils/API';
 import { getCookie } from '../utils/getCookie';
 
-import { IPayment, IPaymentApi, IState } from '../models/interface';
+import { IPayment, IPaymentApi, IState, IUser } from '../models/interface';
 
 import "../sass/pages/payment-detail.scss";
 import { useState } from 'react';
 
 interface IProps {
-    payments: IPaymentApi[]
+    payments: IPaymentApi[],
+    user: IUser
 }
 
 const PaymentDetail:React.FC<IProps> = (props) => {
@@ -31,6 +32,10 @@ const PaymentDetail:React.FC<IProps> = (props) => {
 
     if(props.payments.length === 0 || loading) {
         return <Loading></Loading>
+    }
+
+    if(props.user.email !== "wilmion92@gmail.com" ){
+        document.location.href === "/";
     }
     
     const payment:IPayment = decrypt(data , process.env.CRYPTO_SECRET);
@@ -113,7 +118,8 @@ const PaymentDetail:React.FC<IProps> = (props) => {
 }
 
 const mapStateToProps = (state:IState) => ({
-    payments: state.payments
+    payments: state.payments,
+    user: state.user
 })
 
 export default connect( mapStateToProps , null )(PaymentDetail)
