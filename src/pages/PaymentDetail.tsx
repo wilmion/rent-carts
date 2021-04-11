@@ -64,22 +64,24 @@ const PaymentDetail:React.FC<IProps> = (props) => {
             
             const [res , err] = await PATCH('payments' , {
                 ...body,
-                data: dates
+                data: {
+                    ...body.data,
+                    ...dates
+                }
             } , token , _id)
 
             console.log({
                 ...body,
                 data: dates
             })
-
-            setLoading(false);
-
             if(err) {
                 setError('Internal Server Error 500')
+                setLoading(false);
                 return null
             }
 
             document.location.href = document.location.href;
+            
         }
 
         setCb(() => afterCb)
