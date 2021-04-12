@@ -44,7 +44,7 @@ export interface IAction {
 }
 export interface IState {
     carts:ICart[];
-    cart:ICart[];
+    product:ICart | null;
     payments: IPaymentApi[];
     user:null | IUser;
 }

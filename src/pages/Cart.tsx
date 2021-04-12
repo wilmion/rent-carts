@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router'
+import { useHistory } from 'react-router';
 
-import { addToCart } from '../redux/actions';
+import { setProduct } from '../redux/actions';
 
 import { FaUserAlt , FaExchangeAlt , FaCarAlt } from 'react-icons/fa';
-import { GiCarDoor , GiChatBubble, GiFuelTank } from 'react-icons/gi';
+import { GiCarDoor , GiFuelTank } from 'react-icons/gi';
 import { AiOutlineShop } from 'react-icons/ai';
 import { ImLocation } from 'react-icons/im'
 import Loading from '../components/Loading';
@@ -14,13 +15,12 @@ import ErrorWindow from '../components/ErrorWindow';
 import { IAction, ICart, IState } from '../models/interface'
 
 import "../sass/pages/cart.scss";
-import { useHistory } from 'react-router-dom';
+
 
 interface IProps {
-    carts:ICart[],
-    cart:ICart[];
+    carts:ICart[];
     user:null | string;
-    addToCart: (payload:ICart) => IAction;
+    setProduct: (payload:ICart) => IAction;
 }
 
 const Cart:React.FC<IProps> = (props) => {
@@ -35,20 +35,14 @@ const Cart:React.FC<IProps> = (props) => {
     }
     
     const handleSubmit = ():void | null => {
-        const isExist = props.cart.find(i => i._id === cart._id);
         if(!props.user){
             const f = () => history.push('/login');
             setCb(() => f);
             setError('You are not logged in')
             return null;
         }
-        if(isExist) {
-            const f = () => setError('');
-            setCb(() => f);
-            setError('The car is in the shopping cart.')
-            return null;
-        }
-        props.addToCart(cart);
+        props.setProduct(cart);
+        history.push('/checkout/payment')
     }
     return (
         <section className="cart-detail">
@@ -130,11 +124,10 @@ const Cart:React.FC<IProps> = (props) => {
 
 const mapStateToProps = (state:IState) => ({
     carts: state.carts,
-    cart: state.cart,
-    user:state.user
+    user: state.user
 })
 const mapDispatchToProps = {
-    addToCart
+    setProduct
 }
 
 export default connect(mapStateToProps , mapDispatchToProps)(Cart)

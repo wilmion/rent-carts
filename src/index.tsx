@@ -9,7 +9,7 @@ import App from './routes/index';
 
 const initialState:IState = {
     carts: [],
-    cart: [],
+    product: null,
     user: null,
     payments: []
 }

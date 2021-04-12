@@ -9,17 +9,10 @@ export const reducer = ( state:IState | undefined , action:IAction ):IState => {
                     ...state,
                     carts: action.payload
                 }
-            case 'ADD_TO_CART':
-
-                const isExist = state.cart.find(c => c._id === action.payload._id);
-
-                if(isExist) {
-                    return state;
-                }
-                
+            case 'SET_PRODUCT':          
                 return {
                     ...state,
-                    cart: [...state.cart , action.payload]
+                    product: action.payload
                 }
             case 'SET_PAYMENTS':
                 return {
