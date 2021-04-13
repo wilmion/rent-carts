@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom';
+import { login } from '../redux/actions';
 
 import { PayPalButton , PaypalOptions ,PayPalButtonProps } from 'react-paypal-button-v2'
 import Loading from '../components/Loading'
@@ -10,13 +11,17 @@ import WarningWindow from '../components/WarningWindows';
 import CartCardMoreDetails from '../components/CartCardMoreDetails';
 
 import { decrypt } from '../utils/decrypt';
+import { PATCH } from '../utils/API'
+import { getCookie } from '../utils/getCookie';
 
-import { ICart, IPayment, IPaymentApi, IState } from '../models/interface';
+import { IAction, ICart, IOrder, IPayment, IPaymentApi, IState, IUser } from '../models/interface';
 import "../sass/pages/payment.scss";
 
 interface IProps {
     product:ICart | null,
-    payments:IPaymentApi[]
+    payments:IPaymentApi[],
+    user:IUser,
+    login:(user:IUser) => IAction
 }
 
 const Payment:React.FC<IProps> = (props) => {
@@ -39,9 +44,33 @@ const Payment:React.FC<IProps> = (props) => {
 
         return config;
     }
-    const handleSuccess = (details:any , data:any):void => {
-        console.log(data , details);
+    const handleSuccess = async (details:any , data:any):Promise<void> => {
+        setLoading(true);
+        const currentDate:Date = new Date();
 
+        const order:IOrder = {
+            order_Id: data.orderID,
+            details_Id: details.id,
+            facturation_email: details.payer.email_address,
+            start_time: currentDate.toString(),
+            finish_time: new Date(currentDate.getDate() + 1).toString(),
+            ...props.product
+        }
+        
+        const updateUser:IUser = {
+            ...props.user,
+            rentedCarts: [order]
+        }
+        const token:string = getCookie('token')
+
+        const [ dataAPI , errorAPI ] = await PATCH('users' , updateUser , token , props.user._id)
+
+        if(errorAPI){
+            setError('A error ocurred for patch API , consulting in wilmion92@gmail.com');
+            return null;
+        }
+        props.login(updateUser);
+        setLoading(false);
         history.push('/checkout/success');
     }
     const handleErrorOrCancel = ():void => {
@@ -61,7 +90,7 @@ const Payment:React.FC<IProps> = (props) => {
                 <PayPalButton
                     options={generatePropsPaypalOptions()} 
                     style={{layout:"vertical" , shape:'rect'}} 
-                    amount={`${props.product.price}`}
+                    amount={`0.01`}
                     onSuccess={handleSuccess}
                     onError={handleErrorOrCancel}
                 />
@@ -72,10 +101,11 @@ const Payment:React.FC<IProps> = (props) => {
 
 const mapStateToProps = (state:IState) => ({
     product: state.product,
-    payments: state.payments
+    payments: state.payments,
+    user: state.user
 })
 const mapDispatchToProps = {
-
+    login
 };
 
 export default connect( mapStateToProps , mapDispatchToProps )(Payment)

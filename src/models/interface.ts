@@ -50,9 +50,17 @@ export interface IState {
 }
 export interface IUser {
     username:string;
+    _id?:string
     fullName:string;
     email:string;
     cart: Array<any>;
     rentedCarts: Array<any>;
     rentalCarts: Array<any>;
+}
+export interface IOrder extends ICart {
+    order_Id:string;   
+    details_Id:string;
+    facturation_email:string;
+    start_time:string;
+    finish_time:string; 
 }
