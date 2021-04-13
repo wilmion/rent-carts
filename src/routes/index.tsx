@@ -13,6 +13,7 @@ const Carts = lazy(() => import('../pages/Carts'));
 const Cart = lazy(() => import('../pages/Cart'));
 const Payment = lazy(() => import('../pages/Payment'));
 const Login = lazy(() => import('../pages/Login'));
+const Success = lazy(() => import('../pages/Success'));
 const Register = lazy(() => import('../pages/Register'));
 const MyAccount = lazy(() => import('../pages/MyAccount'));
 const Admin = lazy(() => import('../containers/Admin'));
@@ -44,6 +45,7 @@ const App:React.FC<{user:IUser | null}> = (props) => {
                         <Route path="/register" exact component={logged? Home : Register} /> 
                         <Route path="/profile" exact component={logged? MyAccount : Login} /> 
                         <Route path="/checkout/payment" exact component={logged? Payment : Login} /> 
+                        <Route path="/checkout/success" exact component={logged? Success : Login} /> 
                         <Route path="/admin/:section" exact component={Admin} /> 
                         <Route path="/admin/add/:id" exact component={AddOrEditProduct} /> 
                         <Route path="/admin/payment/:id" exact component={PaymentDetail} /> 
