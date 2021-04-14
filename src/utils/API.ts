@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { IApiResponse } from '../models/interface'
 const API = 'https://rent-carts.herokuapp.com/api';
-//https://rent-carts.herokuapp.com
 
 export const GET = async (component:string , id?:string , querys?:string , token?:string ):Promise<[any, string | null]> => {
 

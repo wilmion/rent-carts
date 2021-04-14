@@ -8,6 +8,7 @@ import { AiFillEdit } from 'react-icons/ai';
 import { FaUserCircle } from 'react-icons/fa';
 import ErrorWindow from '../components/ErrorWindow';
 import Loading from '../components/Loading';
+import CarCardDetails from '../components/CartCardMoreDetails';
 
 import { PATCH , POST } from '../utils/API';
 import { getCookie } from '../utils/getCookie';
@@ -28,7 +29,7 @@ const MyAccount:React.FC<IProps> = (props) => {
     const { user } = props;
     const history = useHistory();
     if(!user) {
-        return <></>;
+        return <Loading />
     }
     const [data , setData] = useState<Array<any>>([
         {
@@ -161,6 +162,8 @@ const MyAccount:React.FC<IProps> = (props) => {
         return <Loading />
     }
 
+    console.log(user.rentedCarts)
+
     return (
         <section className="my-profile">
             {error && <ErrorWindow message={error} callback={() => setError(null)} />}
@@ -195,8 +198,29 @@ const MyAccount:React.FC<IProps> = (props) => {
                     
             </section>
             <h3 className="my-profile__section">Rented Carts</h3>
-            
+            <section className="my-profile-rentedContain">
+                {user.rentedCarts.map(car => (
+                    <section className="my-profile-rentedContain-item">
+                        <CarCardDetails {...car} />
+                        <p className="my-profile-rentedContain-item__id">Order Id : {car.order_Id}</p>
+                        <p className="my-profile-rentedContain-item__paragraph">Owner : {car.owner}</p>
+                        <p className="my-profile-rentedContain-item__paragraph">Email : {car.facturation_email}</p>
+                        <p className="my-profile-rentedContain-item__id">Order Id : {car.order_Id}</p>
+                        <p className="my-profile-rentedContain-item__paragraph">Start Time : {car.start_time}</p>
+                        <p className="my-profile-rentedContain-item__paragraph">Finish Time : {car.finish_time}</p>
+                    </section>
+                ))}
+            </section>
             <h3 className="my-profile__section">Rental Carts</h3>
+            <section className="my-profile-rentalContain">
+                {props.user.rentalCarts.map(c => (
+                    <section className="my-profile-rentalContain-item">
+                        <CarCardDetails {...c} />
+                        <p className="my-profile-rentalContain-item__finish">Finish : {c.finish_time}</p>
+                    </section>
+                ))}
+            </section>
+            
         </section>
     )
 }

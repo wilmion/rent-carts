@@ -59,7 +59,7 @@ const Payment:React.FC<IProps> = (props) => {
         const { _id , ...oldUser} = props.user;
         const updateUser:IUser = {
             ...oldUser,
-            rentedCarts: [order]
+            rentalCarts: [order]
         }
         const token:string = getCookie('token')
         const id:string = getCookie('id');

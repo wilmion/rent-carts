@@ -14,7 +14,6 @@ export const logIn = async (token:string , id:string):Promise<void> => {
 
             store.dispatch(setPayments(payments));
         }
-        console.log(getCookie('id') , data._id)
         store.dispatch(login(data));
     }catch(e) {
         logIn(token , id);

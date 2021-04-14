@@ -54,8 +54,8 @@ export interface IUser {
     fullName:string;
     email:string;
     cart: Array<any>;
-    rentedCarts: Array<any>;
-    rentalCarts: Array<any>;
+    rentedCarts: Array<IOrder>;
+    rentalCarts: Array<IOrder>;
 }
 export interface IOrder extends ICart {
     order_Id:string;   
