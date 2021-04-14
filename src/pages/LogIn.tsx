@@ -39,6 +39,8 @@ const LogIn:React.FC<IProps> = ({login}) => {
         }
 
         const [ data , error ] = await POST('auth' , body , 'No Token');
+        
+        setLoading(false)
 
         if(error) {
             setError('Verifiqued password or email');

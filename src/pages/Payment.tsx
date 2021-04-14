@@ -56,21 +56,22 @@ const Payment:React.FC<IProps> = (props) => {
             finish_time: new Date(currentDate.getDate() + 1).toString(),
             ...props.product
         }
-        
+        const { _id , ...oldUser} = props.user;
         const updateUser:IUser = {
-            ...props.user,
+            ...oldUser,
             rentedCarts: [order]
         }
         const token:string = getCookie('token')
+        const id:string = getCookie('id');
 
-        const [ dataAPI , errorAPI ] = await PATCH('users' , updateUser , token , props.user._id)
+        const [ dataAPI , errorAPI ] = await PATCH('users' , updateUser , `Bearer ${token}` , id)
 
         if(errorAPI){
+            setLoading(false);
             setError('A error ocurred for patch API , consulting in wilmion92@gmail.com');
             return null;
         }
-        props.login(updateUser);
-        setLoading(false);
+        props.login({_id,...updateUser});
         history.push('/checkout/success');
     }
     const handleErrorOrCancel = ():void => {
