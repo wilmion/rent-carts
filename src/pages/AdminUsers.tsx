@@ -82,7 +82,7 @@ const AdminUsers:React.FC = () => {
                                 {u.rentedCarts.length === 0 && <p className="admin-users-contain-item-body-cars__paragrafth">No cars...</p>}
                                 {u.rentedCarts.map(( c , i , arr ) => {
                                     if(i === 2) {
-                                        return <Link to={`/admin/user/${c._id}`} className="admin-users-contain-item-body-cars__showMore">Show More ({arr.length - 2})...</Link>
+                                        return <Link to={`/admin/user/${u._id}`} className="admin-users-contain-item-body-cars__showMore">Show More ({arr.length - 2})...</Link>
                                     }else if(i > 2) {
                                         return '';
                                     }
@@ -91,7 +91,7 @@ const AdminUsers:React.FC = () => {
                                 })} 
                                 <h4 className="admin-users-contain-item-body-cars__title">Rentel Cars</h4>
                                 {u.rentalCarts.length === 0 && <p className="admin-users-contain-item-body-cars__paragrafth">No cars...</p>}
-                                {u.rentalCarts.length > 0 && <p className="admin-users-contain-item-body-cars__paragrafth">{u.rentalCarts[0].name} , Time Reaming: {u.rentalCarts[0].timeReaming} min</p>}     
+                                {u.rentalCarts.length > 0 && <p className="admin-users-contain-item-body-cars__paragrafth">{u.rentalCarts[0].name} , Finish Time: {u.rentalCarts[0].finish_time} </p>}     
                             </section>
                         </div>
                         <button className="admin-users-contain-item__delete">

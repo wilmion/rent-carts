@@ -19,6 +19,7 @@ const MyAccount = lazy(() => import('../pages/MyAccount'));
 const Admin = lazy(() => import('../containers/Admin'));
 const AddOrEditProduct = lazy(() => import('../pages/AddOrEditProduct'));
 const PaymentDetail = lazy(() => import('../pages/PaymentDetail'));
+const AdminUserRentedProducts = lazy(() => import('../pages/AdminUserRentedProducts'));
 
 let loggeaded:boolean = false
 
@@ -46,9 +47,10 @@ const App:React.FC<{user:IUser | null}> = (props) => {
                         <Route path="/profile" exact component={logged? MyAccount : Login} /> 
                         <Route path="/checkout/payment" exact component={logged? Payment : Login} /> 
                         <Route path="/checkout/success" exact component={logged? Success : Login} /> 
-                        <Route path="/admin/:section" exact component={Admin} /> 
-                        <Route path="/admin/add/:id" exact component={AddOrEditProduct} /> 
-                        <Route path="/admin/payment/:id" exact component={PaymentDetail} /> 
+                        <Route path="/admin/:section" exact component={Admin} />
+                        <Route path="/admin/add/:id" exact component={AddOrEditProduct} />
+                        <Route path="/admin/payment/:id" exact component={PaymentDetail} />
+                        <Route path="/admin/user/:id" exact component={AdminUserRentedProducts} />
                     </Layout>
                     
                 </Switch>

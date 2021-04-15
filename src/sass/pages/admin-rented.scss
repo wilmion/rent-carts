@@ -1,0 +1,16 @@
+@import "../global/variables.scss";
+
+.admin-rented {
+  width: 90%;
+  margin: 0 auto;
+  &__paragrahp {
+    font-size: 1.3rem;
+    color: $color-oscuro;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px;
+    background-color: gainsboro;
+    border: $color-oscuro solid 1px;
+    margin: 15px auto;
+  }
+}
