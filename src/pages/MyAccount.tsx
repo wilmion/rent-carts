@@ -202,23 +202,27 @@ const MyAccount:React.FC<IProps> = (props) => {
                 {user.rentedCarts.map(car => (
                     <section className="my-profile-rentedContain-item">
                         <CarCardDetails {...car} />
-                        <p className="my-profile-rentedContain-item__id">Order Id : {car.order_Id}</p>
-                        <p className="my-profile-rentedContain-item__paragraph">Owner : {car.owner}</p>
-                        <p className="my-profile-rentedContain-item__paragraph">Email : {car.facturation_email}</p>
-                        <p className="my-profile-rentedContain-item__id">Order Id : {car.order_Id}</p>
-                        <p className="my-profile-rentedContain-item__paragraph">Start Time : {car.start_time}</p>
-                        <p className="my-profile-rentedContain-item__paragraph">Finish Time : {car.finish_time}</p>
+                        <section className="my-profile-rentedContain-item-info">
+                            <p className="my-profile-rentedContain-item-info__id">Order Id : <br/> {car.order_Id}</p>
+                            <p className="my-profile-rentedContain-item-info__paragraph">Owner : <br/> {car.owner}</p>
+                            <p className="my-profile-rentedContain-item-info__paragraph">Email : <br/> {car.facturation_email}</p>
+                            <p className="my-profile-rentedContain-item-info__paragraph">Start Time : <br/>  {car.start_time}</p>
+                            <p className="my-profile-rentedContain-item-info__paragraph">Finish Time : <br/> {car.finish_time}</p>
+                        </section>
                     </section>
                 ))}
+                {user.rentedCarts.length === 0 && <h5 className="my-profile-not-results">Not Results!</h5>}
             </section>
             <h3 className="my-profile__section">Rental Carts</h3>
             <section className="my-profile-rentalContain">
-                {props.user.rentalCarts.map(c => (
+
+                {user.rentalCarts.map(c => (
                     <section className="my-profile-rentalContain-item">
                         <CarCardDetails {...c} />
                         <p className="my-profile-rentalContain-item__finish">Finish : {c.finish_time}</p>
                     </section>
                 ))}
+                {user.rentalCarts.length === 0 && <h5 className="my-profile-not-results">Not Results!</h5>}
             </section>
             
         </section>

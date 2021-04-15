@@ -78,4 +78,48 @@
       }
     }
   }
+  &-rentedContain {
+    width: 90%;
+    margin: 10px auto;
+    &-item-info {
+      &__paragraph {
+        font-size: 1.3rem;
+        text-align: center;
+        color: $color-oscuro;
+        margin: 10px auto;
+        padding: 5px;
+        border: $color-oscuro solid 1px;
+        background-color: gainsboro;
+      }
+      &__id {
+        font-size: 1.3rem;
+        text-align: center;
+        color: $color-oscuro;
+        font-style: italic;
+        font-weight: 700;
+        margin: 10px 0;
+      }
+    }
+  }
+  &-rentalContain {
+    width: 90%;
+    margin: 10px auto;
+    &-item {
+      &__finish {
+        margin: 10px auto;
+        color: $color-oscuro;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-style: italic;
+        width: 100%;
+      }
+    }
+  }
+  &-not-results {
+    color: $color-oscuro;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
 }
