@@ -2,18 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { IState } from './models/interface';
+import initialState from './initialState';
 import { reducer } from './redux/reducers';
 
 import App from './routes/index';
-
-const initialState:IState = {
-    carts: [],
-    product: null,
-    user: null,
-    payments: []
-}
-
 export const store = createStore(reducer , initialState);
 
 const app:HTMLElement = document.getElementById('app');

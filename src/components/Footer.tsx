@@ -6,7 +6,7 @@ import { navigateURL } from '../utils/navigateURL';
 import "../sass/components/footer.scss";
 import {Link} from 'react-router-dom';
 
-const Footer = () => {
+const Footer:React.FC = () => {
     return (
         <footer className="footer">
             <div className="footer-section">
