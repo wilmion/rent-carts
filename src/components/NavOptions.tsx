@@ -33,6 +33,7 @@ const navOptions:React.FC<IProps> = (props) => {
             {props.options.map((o , i:number) => (
                 <h5 
                     className={`nav-options__option ${i === activeDefault() && "nav-options__option--active"}`} 
+                    id={`nav_option${i}`}
                     key={o} 
                     onClick={toogleOption}
                 >{o}</h5>

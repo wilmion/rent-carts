@@ -45,7 +45,7 @@ const CartCardMoreDetails:React.FC<ICart> = (props) => {
                 </div>
                 <div className="cart-card-details-footer-feature">
                     <FaExchangeAlt className="cart-card-details-footer-feature__icon" />
-                    <p className="cart-card-details-footer-feature__value">{simplifyTransmition(props.features.typeTransmission)}</p>
+                    <p className="cart-card-details-footer-feature__value" id="type-transmition" >{simplifyTransmition(props.features.typeTransmission)}</p>
                 </div>
                 <div className="cart-card-details-footer-feature">
                     <GiCarDoor className="cart-card-details-footer-feature__icon" />

@@ -9,7 +9,7 @@ export interface ICart {
     name: string,
     image: string ,
     description: string,
-    mark: 'Susuki' | 'Toyota',
+    mark: 'Susuki' | 'Toyota' | 'Chevrolet' | 'Tunland',
     price: number,
     creationYear: number,
     owner: string,
