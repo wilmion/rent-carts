@@ -12,14 +12,14 @@ import { ImLocation } from 'react-icons/im'
 import Loading from '../components/Loading';
 import ErrorWindow from '../components/ErrorWindow';
 
-import { IAction, ICart, IState } from '../models/interface'
+import { IAction, ICart, IState, IUser } from '../models/interface'
 
 import "../sass/pages/cart.scss";
 
 
 interface IProps {
     carts:ICart[];
-    user:null | string;
+    user:null | IUser;
     setProduct: (payload:ICart) => IAction;
 }
 
