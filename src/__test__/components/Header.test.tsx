@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 
 describe('<Header />' , () => {
     test('Render Component' , () => {
-        const header = shallow(<Header />);
+        const header = shallow(<ProviderMock><Header /></ProviderMock>);
         expect(header.length).toEqual(1);
     })
     test('Snapshot' , () => {

@@ -41,19 +41,13 @@ exports[`<Header /> Snapshot 1`] = `
       className="header-menu__section"
       onClick={[Function]}
     >
-      Cart
+      Log In
     </p>
     <p
       className="header-menu__section"
       onClick={[Function]}
     >
-      My Acount
-    </p>
-    <p
-      className="header-menu__section"
-      onClick={[Function]}
-    >
-      Type Carts
+      Type Cars
     </p>
     <p
       className="header-menu__section"
@@ -91,6 +85,56 @@ exports[`<Header /> Snapshot 1`] = `
     >
       Find your car
     </h3>
+    <nav
+      className="header-show-nav"
+    >
+      <div
+        className="header-show-nav-logo"
+      >
+        <img
+          alt="Favicon"
+          onClick={[Function]}
+          src="https://firebasestorage.googleapis.com/v0/b/rentcarts.appspot.com/o/logo.png?alt=media&token=5392288a-fd79-4cfe-a99e-f4306ccedd88"
+        />
+      </div>
+      <ul
+        className="header-show-nav-list"
+      >
+        <li
+          className="header-show-nav-list__item"
+          onClick={[Function]}
+        >
+          Home
+        </li>
+        <li
+          className="header-show-nav-list__item"
+          onClick={[Function]}
+        >
+          Cars
+        </li>
+        <li
+          className="header-show-nav-list__item"
+          onClick={[Function]}
+        >
+          About
+        </li>
+        <li
+          className="header-show-nav-list__item"
+        >
+          |
+        </li>
+        <li
+          className="header-show-nav-list__item"
+        >
+          <button
+            className="header-show-nav-list__item--button"
+            onClick={[Function]}
+          >
+            Log In
+          </button>
+        </li>
+      </ul>
+    </nav>
     <div
       className="header-show-menu"
     >

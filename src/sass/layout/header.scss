@@ -15,6 +15,9 @@
       font-size: 1.6rem;
       text-align: center;
     }
+    &-nav {
+      display: none;
+    }
     &-menu {
       background-color: $principal-color;
       width: 40px;
@@ -56,6 +59,106 @@
       color: $color-claro;
       margin: 15px 10px;
       font-style: italic;
+    }
+  }
+}
+@media (min-width: 700px) {
+  .header {
+    &-show {
+      border-bottom: rgba($color-oscuro, $alpha: 0.4) solid 5px;
+      &__icon-left {
+        display: none;
+      }
+      &-nav {
+        display: flex;
+        width: 100%;
+        &-logo {
+          width: 20%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 90px;
+            cursor: pointer;
+            height: auto;
+          }
+        }
+        &-list {
+          width: 80%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          list-style: none;
+          &__item {
+            color: $color-oscuro;
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            cursor: pointer;
+            &--icon {
+              color: $color-oscuro;
+              font-size: 2.5rem;
+            }
+            &--button {
+              padding: 10px 30px;
+              display: block;
+              background-color: $secundary-color;
+              transition: 1s;
+              border: none;
+              font-weight: 700;
+              color: $color-claro;
+              font-style: italic;
+              &:hover {
+                background-color: $secundary-color-hover;
+              }
+            }
+          }
+        }
+      }
+      &__title {
+        display: none;
+      }
+      &-menu {
+        display: none;
+      }
+    }
+    &-menu {
+      display: none;
+    }
+  }
+}
+@media (min-width: 900px) and (max-width: 1600px) {
+  .header {
+    &-show {
+      &-nav {
+        &-list {
+          &__item {
+            font-size: 1.7rem;
+            &--icon {
+              color: $color-oscuro;
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .header {
+    &-show {
+      padding: 35px 0;
+      &-nav {
+        &-list {
+          &__item {
+            font-size: 2.2rem;
+            &--icon {
+              color: $color-oscuro;
+              font-size: 3rem;
+            }
+          }
+        }
+      }
     }
   }
 }
