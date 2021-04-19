@@ -123,3 +123,136 @@
     font-size: 1.5rem;
   }
 }
+@media (min-width: 700px) {
+  .my-profile {
+    &-header {
+      button {
+        width: 30%;
+      }
+    }
+  }
+}
+@media (min-width: 900px) and (max-width: 1600px) {
+  .my-profile {
+    &-header {
+      button {
+        width: 20%;
+      }
+    }
+    &__title {
+      font-size: 1.9rem;
+    }
+    &-photo {
+      font-size: 8rem;
+      width: 20%;
+    }
+    &__fullname {
+      font-size: 1.4rem;
+    }
+    &__section {
+      font-size: 1.8rem;
+      margin-bottom: 5%;
+      margin-top: 2%;
+      margin-left: 10%;
+    }
+    &-table {
+      width: 80%;
+    }
+    &-rentedContain {
+      width: 80%;
+
+      &-item {
+        display: flex;
+        justify-content: center;
+        &-info {
+          width: 70%;
+          margin-left: 25px;
+        }
+      }
+    }
+    &-rentalContain {
+      width: 80%;
+      &-item {
+        display: flex;
+        justify-content: center;
+        &-info {
+          width: 70%;
+          margin-left: 25px;
+        }
+      }
+    }
+    &-not-results {
+      font-size: 1.5rem;
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .my-profile {
+    &-header {
+      button {
+        width: 15%;
+      }
+    }
+    &__title {
+      font-size: 2.2rem;
+    }
+    &-photo {
+      font-size: 9rem;
+      width: 20%;
+    }
+    &__fullname {
+      font-size: 1.6rem;
+    }
+    &__section {
+      font-size: 2rem;
+    }
+    &-table {
+      width: 70%;
+      &-file {
+        &-icon {
+          &__icon {
+            font-size: 1.8rem;
+          }
+        }
+        &__key {
+          font-size: 1.7rem;
+        }
+        &__value {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    &-rentedContain {
+      width: 70%;
+
+      &-item {
+        &-info {
+          margin-left: 45px;
+          &__paragraph {
+            //
+            font-size: 1.5rem;
+          }
+          &__id {
+            //
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+    &-rentalContain {
+      width: 70%;
+      &-item {
+        &-info {
+          margin-left: 45px;
+          &__finish {
+            //
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+    &-not-results {
+      font-size: 1.7rem;
+    }
+  }
+}

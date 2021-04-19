@@ -78,3 +78,60 @@
     }
   }
 }
+
+@media (min-width: 700px) {
+  .auth {
+    &__title {
+      font-size: 2.2rem;
+    }
+    &-form {
+      &__button {
+        width: 50%;
+      }
+    }
+  }
+}
+@media (min-width: 900px) and (max-width: 1600px) {
+  .auth {
+    &__title {
+      font-size: 2.4rem;
+    }
+    &-form {
+      &-content {
+        width: 60%;
+      }
+      &__forgot {
+        font-size: 1.2rem;
+      }
+
+      &__register {
+        font-size: 1.2rem;
+      }
+      &__button {
+        width: 40%;
+      }
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .auth {
+    &__title {
+      font-size: 2.6rem;
+    }
+    &-form {
+      &-content {
+        width: 50%;
+      }
+      &__forgot {
+        font-size: 1.4rem;
+      }
+
+      &__register {
+        font-size: 1.4rem;
+      }
+      &__button {
+        width: 30%;
+      }
+    }
+  }
+}

@@ -34,7 +34,7 @@ const PaymentDetail:React.FC<IProps> = (props) => {
         return <Loading></Loading>
     }
 
-    if(props.user.email !== "wilmion92@gmail.com" ){
+    if(props.user && props.user.email !== "wilmion92@gmail.com" ){
         document.location.href === "/";
     }
     
@@ -74,11 +74,6 @@ const PaymentDetail:React.FC<IProps> = (props) => {
                     ...dates
                 }
             } , token , _id)
-
-            console.log({
-                ...body,
-                data: dates
-            })
             if(err) {
                 setError('Internal Server Error 500')
                 setLoading(false);
