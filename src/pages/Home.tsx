@@ -55,7 +55,17 @@ const Home:React.FC<IProps> = (props) => {
         if(showFilters || searching ) {
             data = response;
         } else {
-            data = [res[0] , res[1]];
+            const width:number = window.innerWidth;
+            if(width >= 700 && width <= 900) {
+                data = [res[0] , res[1] , res[2]];
+            }else if(width >= 901 && width <= 1600) {
+                data = [res[0] , res[1] , res[2] , res[3]];
+            }else if(width >= 1601) {
+                data = [res[0] , res[1] , res[2] , res[3] , res[4]];
+            }else {
+                data = [res[0] , res[1]];
+            }
+            
         }
         return (<article className="home-recomend-products">
             {data.length === 0 && <p className="home-recomend-products__notResults">Not Results...</p> }
@@ -64,7 +74,7 @@ const Home:React.FC<IProps> = (props) => {
     }
 
     return (
-        <>
+        <section className="home">
             <section className="home-actions">
                 <div className="home-actions__filters" onClick={() => setShowFilters(!showFilters)} >
                     <FaFilter className="home-actions__filters-icon" />
@@ -83,7 +93,7 @@ const Home:React.FC<IProps> = (props) => {
                 <h2 className="home-recomend__title">Featured Car</h2>
                 {res && res.length > 0?  showDatas() : <Loading/>}
             </section>
-        </>
+        </section>
     )
 }
 
