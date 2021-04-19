@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 
 import { ICart, IState } from '../models/interface';
 
+import "../sass/pages/cars.scss"
+
 let all:boolean = true;
 
 interface IProps {
@@ -46,8 +48,13 @@ const Carts:React.FC<IProps> = (props) => {
 
     return (
         <section className="carts">
-            <NavOptions options={['All Cars','Hatchback','Sedan','SUV','Pickup']} callback={toogleOption} />
-            {res && res.length > 0? renderData() : <Loading />}
+            <nav className="carts-nav">
+                <NavOptions options={['All Cars','Hatchback','Sedan','SUV','Pickup']} callback={toogleOption} />
+            </nav>        
+            <section className="carts-content">
+                {res && res.length > 0? renderData() : <Loading />}
+            </section>
+            
         </section>
     )
 }

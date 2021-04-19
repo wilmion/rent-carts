@@ -1,0 +1,35 @@
+@import "../global/variables.scss";
+
+@media (min-width: 700px) {
+  .carts {
+    &-nav {
+      width: 80%;
+      margin: 0 auto;
+    }
+    &-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: auto;
+    }
+  }
+}
+@media (min-width: 900px) and (max-width: 1600px) {
+  .carts {
+    &-nav {
+      width: 70%;
+    }
+    &-content {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .carts {
+    &-nav {
+      width: 60%;
+    }
+    &-content {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

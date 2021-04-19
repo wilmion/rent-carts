@@ -146,3 +146,241 @@
     }
   }
 }
+@media (min-width: 700px) {
+  .cart-detail {
+    img {
+      width: 40%; //
+      border-radius: 100%;
+      margin: 10px auto;
+    }
+    &__mark {
+      font-size: 1.5rem; //
+    }
+    &-title {
+      margin: 10px 0;
+      &__title {
+        font-size: 2.3rem; //
+        margin-right: 10px;
+      }
+      &__year {
+        font-size: 1.4rem; //
+      }
+    }
+    &__price {
+      font-size: 1.6rem; //
+      small {
+        font-size: 1.4rem; //
+      }
+    }
+    &-features {
+      width: 80%;
+      padding: 10px;
+      border: $color-oscuro solid 1px;
+      border-radius: 10px;
+      background-color: gainsboro;
+      &-file {
+        &-item {
+          &__icon {
+            font-size: 1.6rem;
+          }
+          &__value {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+    &-desc {
+      width: 85%;
+    }
+    &-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &-details {
+      width: 70%;
+      padding: 10px;
+      border: $color-oscuro solid 1px;
+      border-radius: 10px;
+      background-color: gainsboro;
+      &-header {
+        justify-content: center;
+        &__title {
+          font-size: 1.7rem;
+        }
+        &__line {
+          display: none;
+        }
+      }
+      &-body {
+        &-item {
+          &__icon {
+            font-size: 1.8rem;
+          }
+          &__prev {
+            font-size: 1.5rem;
+          }
+          &__post {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+    &__submit {
+      width: 50%;
+      font-size: 1.3rem;
+    }
+  }
+}
+@media (min-width: 900px) and (max-width: 1600px) {
+  .cart-detail {
+    img {
+      width: 30%; //
+      margin: 10px auto;
+    }
+    &__mark {
+      font-size: 1.7rem; //
+    }
+    &-title {
+      &__title {
+        font-size: 2.5rem; //
+        margin-right: 15px;
+      }
+      &__year {
+        font-size: 1.4rem; //
+      }
+    }
+    &__price {
+      font-size: 1.8rem; //
+      small {
+        font-size: 1.6rem; //
+      }
+    }
+    &-features {
+      width: 80%;
+      &-file {
+        &-item {
+          &__icon {
+            font-size: 1.6rem;
+          }
+          &__value {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+    &-desc {
+      width: 70%;
+      margin: 0 auto;
+      &__title {
+        font-size: 2rem;
+      }
+      &-content {
+        &__content {
+          font-size: 1.6rem;
+        }
+      }
+    }
+    &-details {
+      width: 70%;
+      &-header {
+        justify-content: center;
+        &__title {
+          font-size: 1.9rem;
+        }
+        &__line {
+          display: none;
+        }
+      }
+      &-body {
+        &-item {
+          &__icon {
+            font-size: 2rem;
+          }
+          &__prev {
+            font-size: 1.7rem;
+          }
+          &__post {
+            font-size: 1.7rem;
+          }
+        }
+      }
+    }
+    &__submit {
+      width: 50%;
+      font-size: 1.3rem;
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .cart-detail {
+    img {
+      width: 20%; //
+    }
+    &__mark {
+      font-size: 2.1rem; //
+    }
+    &-title {
+      &__title {
+        font-size: 2.9rem; //
+      }
+      &__year {
+        font-size: 1.9rem; //
+      }
+    }
+    &__price {
+      font-size: 2.3rem; //
+      small {
+        font-size: 2.1rem; //
+      }
+    }
+    &-features {
+      width: 80%;
+      &-file {
+        &-item {
+          &__icon {
+            font-size: 2.1rem;
+          }
+          &__value {
+            font-size: 1.9rem;
+          }
+        }
+      }
+    }
+    &-desc {
+      width: 85%;
+      &__title {
+        font-size: 2.5rem;
+      }
+      &-content {
+        &__content {
+          font-size: 2.1rem;
+        }
+      }
+    }
+    &-details {
+      width: 40%;
+      &-header {
+        &__title {
+          font-size: 2.4rem;
+        }
+      }
+      &-body {
+        &-item {
+          &__icon {
+            font-size: 2.5rem;
+          }
+          &__prev {
+            font-size: 2.3rem;
+          }
+          &__post {
+            font-size: 2.3rem;
+          }
+        }
+      }
+    }
+    &__submit {
+      width: 30%;
+      font-size: 1.8rem;
+    }
+  }
+}

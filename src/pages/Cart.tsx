@@ -54,45 +54,47 @@ const Cart:React.FC<IProps> = (props) => {
                 <h5 className="cart-detail-title__year">{cart.creationYear}</h5>
             </div>
             <h4 className="cart-detail__price">${cart.price}/<small>day</small></h4>
-            <section className="cart-detail-features">
-                <section className="cart-detail-features-file">
-                    <div className="cart-detail-features-file-item">
-                        <FaUserAlt className="cart-detail-features-file-item__icon" />
-                        <p className="cart-detail-features-file-item__value">{cart.features.capacity} X Person</p>
-                    </div>    
-                    <div className="cart-detail-features-file-item">
-                        <GiCarDoor className="cart-detail-features-file-item__icon" />
-                        <p className="cart-detail-features-file-item__value">{cart.features.doors} X Door</p>
-                    </div>   
-                    <div className="cart-detail-features-file-item">
-                        <p className="cart-detail-features-file-item__value">{cart.features.cc}cc</p>
-                    </div>   
+            <section className="cart-detail-content">
+                <section className="cart-detail-features">
+                    <section className="cart-detail-features-file">
+                        <div className="cart-detail-features-file-item">
+                            <FaUserAlt className="cart-detail-features-file-item__icon" />
+                            <p className="cart-detail-features-file-item__value">{cart.features.capacity} X Person</p>
+                        </div>    
+                        <div className="cart-detail-features-file-item">
+                            <GiCarDoor className="cart-detail-features-file-item__icon" />
+                            <p className="cart-detail-features-file-item__value">{cart.features.doors} X Door</p>
+                        </div>   
+                        <div className="cart-detail-features-file-item">
+                            <p className="cart-detail-features-file-item__value">{cart.features.cc}cc</p>
+                        </div>   
+                    </section>
+                    <section className="cart-detail-features-file">
+                        <div className="cart-detail-features-file-item">
+                            <FaExchangeAlt className="cart-detail-features-file-item__icon" />
+                            <p className="cart-detail-features-file-item__value">{cart.features.typeTransmission}</p>
+                        </div>    
+                        <div className="cart-detail-features-file-item">
+                            <p className="cart-detail-features-file-item__value">{cart.features.typeCart}</p>
+                        </div>   
+                    </section>
+                    <section className="cart-detail-features-file">
+                        <div className="cart-detail-features-file-item">
+                            <GiFuelTank className="cart-detail-features-file-item__icon" />
+                            <p className="cart-detail-features-file-item__value">{cart.features.typeFuel}</p>
+                        </div>    
+                        <div className="cart-detail-features-file-item">
+                            <FaCarAlt className="cart-detail-features-file-item__icon" />
+                            <p className="cart-detail-features-file-item__value">{cart.features.year}</p>
+                        </div>     
+                    </section>
                 </section>
-                <section className="cart-detail-features-file">
-                    <div className="cart-detail-features-file-item">
-                        <FaExchangeAlt className="cart-detail-features-file-item__icon" />
-                        <p className="cart-detail-features-file-item__value">{cart.features.typeTransmission}</p>
-                    </div>    
-                    <div className="cart-detail-features-file-item">
-                        <p className="cart-detail-features-file-item__value">{cart.features.typeCart}</p>
-                    </div>   
+                <section className="cart-detail-desc">
+                    <h3 className="cart-detail-desc__title">Car Description</h3>
+                    <div className="cart-detail-desc-content">
+                        <p className="cart-detail-desc-content__content">{cart.description}</p>
+                    </div>
                 </section>
-                <section className="cart-detail-features-file">
-                    <div className="cart-detail-features-file-item">
-                        <GiFuelTank className="cart-detail-features-file-item__icon" />
-                        <p className="cart-detail-features-file-item__value">{cart.features.typeFuel}</p>
-                    </div>    
-                    <div className="cart-detail-features-file-item">
-                        <FaCarAlt className="cart-detail-features-file-item__icon" />
-                        <p className="cart-detail-features-file-item__value">{cart.features.year}</p>
-                    </div>     
-                </section>
-            </section>
-            <section className="cart-detail-desc">
-                <h3 className="cart-detail-desc__title">Car Description</h3>
-                <div className="cart-detail-desc-content">
-                    <p className="cart-detail-desc-content__content">{cart.description}</p>
-                </div>
             </section>
             <section className="cart-detail-details">
                 <div className="cart-detail-details-header">
