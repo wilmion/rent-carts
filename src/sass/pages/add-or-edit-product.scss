@@ -56,3 +56,34 @@
     }
   }
 }
+@media (min-width: 900px) and (max-width: 1600px) {
+  .product-AddOrEdit {
+    &-form {
+      width: 50%;
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .product-AddOrEdit {
+    &__title {
+      font-size: 2rem;
+    }
+    &-form {
+      width: 50%;
+      &-label {
+        &__title {
+          font-size: 1.4rem;
+        }
+        &__input {
+          font-size: 1.4rem;
+        }
+        textarea {
+          font-size: 1.7rem;
+        }
+      }
+      &__submit {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

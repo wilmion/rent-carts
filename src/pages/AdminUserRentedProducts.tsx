@@ -53,13 +53,14 @@ const AdminUserRentedProducts:React.FC = () => {
     return (
         <section className="admin-rented">
             {error && <ErrorWindow message={error} callback={() => setError(null)} />}
-            {rentedCarts.map(c => (<article key={c._id}>
-            <CarCardMoreDetails {...c} />
-                <p className="admin-rented__paragrahp"> ORDER ID : {c.order_Id}</p>
-                <p className="admin-rented__paragrahp"> OWNER ORDER : {c.owner}</p>
-                <p className="admin-rented__paragrahp"> FINISH TIME : {c.finish_time}</p>
-            </article>))}
-            
+            <div className="admin-rented-grid">
+                {rentedCarts.map(c => (<article className="admin-rented-grid-item" key={c._id}>
+                <CarCardMoreDetails {...c} />
+                    <p className="admin-rented__paragrahp"> ORDER ID : {c.order_Id}</p>
+                    <p className="admin-rented__paragrahp"> OWNER ORDER : {c.owner}</p>
+                    <p className="admin-rented__paragrahp"> FINISH TIME : {c.finish_time}</p>
+                </article>))}
+            </div>       
         </section>
     )
 }

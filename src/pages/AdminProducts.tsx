@@ -63,7 +63,7 @@ const AdminProducts:React.FC<IProps> = (props) => {
         setCb(() => callBack);
     }
 
-    if(loading){
+    if(loading || props.cars.length === 0){
         return <Loading />
     }
 
@@ -71,28 +71,32 @@ const AdminProducts:React.FC<IProps> = (props) => {
         <section className="admin-products">
             {warning && <WarningWindows message={warning} cb={cb} /> }
             {error && <ErrorWindow message={error} callback={() => setError(null)}  />}
-            <section className="admin-products-header">
-                <input type="text" className="admin-products-header__search" onInput={handleSearch} placeholder="Find Product" />
-                <Link to="/admin/add/newProduct" className="admin-products-header__add">Add Product</Link>
-            </section>
-            <h2 className="admin-products__title">Products:</h2>
-            {cars.map(c => 
-                <section className="admin-products-item" key={c._id} >
-                    <section className="admin-products-item-portrait">
-                        <CartCardMoreDetails {...c} />
-                    </section>
-                    <section className="admin-products-item-footer">
-                        <button className="admin-products-item-footer__button terciary-bc" onClick={() => history.push(`/admin/add/${c._id}`)} >
-                            <AiFillEdit className="admin-products-item-footer__button--icon" />
-                            <span className="admin-products-item-footer__button--text">Edit</span>
-                        </button>
-                        <button className="admin-products-item-footer__button primary-bc">
-                            <BsFillTrashFill className="admin-products-item-footer__button--icon" />
-                            <span className="admin-products-item-footer__button--text" onClick={() => handleDelete(c._id)} >Delete</span>
-                        </button>
-                    </section>
+            <div className="admin-products-grid">
+                <section className="admin-products-header">
+                    <input type="text" className="admin-products-header__search" onInput={handleSearch} placeholder="Find Product" />
+                    <Link to="/admin/add/newProduct" className="admin-products-header__add">Add Product</Link>
                 </section>
-            )}     
+                <section className="admin-products-contain">
+                <h2 className="admin-products__title">Products:</h2>
+                {(cars.length === 0 ? props.cars : cars).map(c => 
+                    <section className="admin-products-item" key={c._id} >
+                        <section className="admin-products-item-portrait">
+                            <CartCardMoreDetails {...c} />
+                        </section>
+                        <section className="admin-products-item-footer">
+                            <button className="admin-products-item-footer__button terciary-bc" onClick={() => history.push(`/admin/add/${c._id}`)} >
+                                <AiFillEdit className="admin-products-item-footer__button--icon" />
+                                <span className="admin-products-item-footer__button--text">Edit</span>
+                            </button>
+                            <button className="admin-products-item-footer__button primary-bc">
+                                <BsFillTrashFill className="admin-products-item-footer__button--icon" />
+                                <span className="admin-products-item-footer__button--text" onClick={() => handleDelete(c._id)} >Delete</span>
+                            </button>
+                        </section>
+                    </section>
+                )}  
+            </section>
+            </div>        
         </section>
     )
 }

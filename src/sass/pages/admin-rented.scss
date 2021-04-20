@@ -14,3 +14,45 @@
     margin: 15px auto;
   }
 }
+@media (min-width: 700px) {
+  .admin-rented {
+    width: 60%;
+    &__paragrahp {
+      font-size: 1.3rem;
+      padding: 5px;
+    }
+  }
+}
+@media (min-width: 900px) and (max-width: 1600px) {
+  .admin-rented {
+    &-grid {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      &-item {
+        width: 90%;
+      }
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .admin-rented {
+    width: 90%;
+    &__paragrahp {
+      font-size: 1.5rem;
+      padding: 5px;
+    }
+    &-grid {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, 32%);
+      &-item {
+        width: 90%;
+      }
+    }
+  }
+}

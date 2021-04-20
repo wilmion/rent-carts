@@ -60,3 +60,63 @@
     }
   }
 }
+@media (min-width: 700px) {
+  .admin-products {
+    &-header {
+      flex-direction: column;
+      &__search {
+        margin: 10px 0;
+      }
+    }
+    &-item {
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
+}
+@media (min-width: 900px) and (max-width: 1600px) {
+  .admin-products {
+    &-header {
+      height: 200px;
+    }
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .admin-products {
+    &-header {
+      height: 300px;
+      &__search {
+        margin: 20px 0; //
+        font-size: 1.8rem; //
+      }
+      &__add {
+        font-size: 1.5rem; //
+      }
+    }
+    &__title {
+      font-size: 2.1rem;
+    }
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+    }
+    &-item {
+      &-footer {
+        &__button {
+          &--icon {
+            font-size: 1.7rem;
+          }
+          &--text {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}
