@@ -1,0 +1,64 @@
+@import "../global/variables.scss";
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-oscuro;
+  &-container {
+    &__icon {
+      font-size: 12rem;
+      color: $color-oscuro;
+      margin: 10px auto;
+      display: block;
+      width: 80%;
+      color: $color-claro;
+    }
+    &__title {
+      color: $color-oscuro;
+      font-size: 7rem;
+      text-align: center;
+      margin: 10px 0;
+      color: $color-claro;
+    }
+    &__desc {
+      color: $color-oscuro;
+      font-size: 1.5rem;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 10px 0;
+      color: $color-claro;
+    }
+  }
+}
+@media (min-width: 700px) {
+  .not-found {
+    &-container {
+      &__icon {
+        font-size: 23rem;
+      }
+      &__title {
+        font-size: 12rem;
+      }
+      &__desc {
+        font-size: 1.9rem;
+      }
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .not-found {
+    &-container {
+      &__icon {
+        font-size: 35rem;
+        width: 80%;
+      }
+      &__title {
+        font-size: 20rem;
+      }
+      &__desc {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}

@@ -20,6 +20,7 @@ const Admin = lazy(() => import('../containers/Admin'));
 const AddOrEditProduct = lazy(() => import('../pages/AddOrEditProduct'));
 const PaymentDetail = lazy(() => import('../pages/PaymentDetail'));
 const AdminUserRentedProducts = lazy(() => import('../pages/AdminUserRentedProducts'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 let loggeaded:boolean = false
 
@@ -37,8 +38,8 @@ const App:React.FC<{user:IUser | null}> = (props) => {
     return (
         <Suspense fallback={<div />}>
             <BrowserRouter>
-                <Switch>
-                    <Layout>
+                <Layout>
+                    <Switch>
                         <Route path="/" exact component={Home} /> 
                         <Route path="/carts" exact component={Carts} /> 
                         <Route path="/cart/:id" exact component={Cart} /> 
@@ -51,9 +52,9 @@ const App:React.FC<{user:IUser | null}> = (props) => {
                         <Route path="/admin/add/:id" exact component={AddOrEditProduct} />
                         <Route path="/admin/payment/:id" exact component={PaymentDetail} />
                         <Route path="/admin/user/:id" exact component={AdminUserRentedProducts} />
-                    </Layout>
-                    
-                </Switch>
+                        <Route exact component={NotFound} />
+                    </Switch>
+                </Layout>
             </BrowserRouter>
         </Suspense>
     )
