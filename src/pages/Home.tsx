@@ -76,10 +76,12 @@ const Home:React.FC<IProps> = (props) => {
     return (
         <section className="home">
             <section className="home-actions">
-                <div className="home-actions__filters" onClick={() => setShowFilters(!showFilters)} >
+                <div className="home-actions__filters" aria-label="Button for show filters" onClick={() => setShowFilters(!showFilters)} >
                     <FaFilter className="home-actions__filters-icon" />
                 </div>
+                <label htmlFor="search"></label>
                 <input type="text" className="home-actions__search" name="search" id="search" onChange={toogleSearch} />
+                
             </section>
             {   showFilters && (
                     <section className="home-filters">

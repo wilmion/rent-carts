@@ -91,7 +91,7 @@ const Payment:React.FC<IProps> = (props) => {
                 <PayPalButton
                     options={generatePropsPaypalOptions()} 
                     style={{layout:"vertical" , shape:'rect'}} 
-                    amount={`0.01`}
+                    amount={props.product.price}
                     onSuccess={handleSuccess}
                     onError={handleErrorOrCancel}
                 />

@@ -8,7 +8,7 @@ interface Iprops{
 const Filter:React.FC<Iprops> = (props) => {
 
     return (
-        <section onClick={props.onclick} className='home-filters-filter' >
+        <section onClick={props.onclick} className='home-filters-filter' aria-hidden="true" >
             <p className="home-filters-filter__title">{props.title}</p>
         </section>
     )

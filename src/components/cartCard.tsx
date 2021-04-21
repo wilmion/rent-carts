@@ -20,7 +20,7 @@ const cartCard:React.FC<IProps> = (props) => {
     return (
         <section className="cart-card">
             <h3 className="cart-card__name">{props.name}</h3>
-            <h5 className="cart-card__price"><strong>${props.price}</strong>/day</h5>
+            <h4 className="cart-card__price"><strong>${props.price}</strong>/day</h4>
             <img src={props.image} alt={props.name} />
             <button type="submit" className="cart-card__button" onClick={toogleRoute}>Book Now</button>
         </section>
