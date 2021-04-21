@@ -1,4 +1,121 @@
 @import "../global/variables.scss";
 
 .about {
+  &__title {
+    color: $color-oscuro;
+    text-align: center;
+    font-size: 2.6rem;
+    margin: 25px auto;
+    text-transform: uppercase;
+  }
+  &-descripcion {
+    margin: 5% 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &__paragraph {
+      font-size: 1.5rem;
+      color: $color-oscuro;
+      line-height: 16px;
+      text-align: center;
+      width: 50%;
+    }
+    &__image {
+      width: 30%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  &-howItWords {
+    &__title {
+      color: $color-oscuro;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 25px 0;
+      text-transform: uppercase;
+    }
+    &__information {
+      color: $color-oscuro;
+      font-size: 1.5rem;
+      line-height: 16px;
+      width: 50%;
+      text-align: center;
+      margin: 10px auto;
+    }
+    &__images {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 70%;
+      margin: 5% auto;
+      &--image {
+        width: 40%;
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  .about {
+    &__title {
+      font-size: 2rem;
+    }
+    &-descripcion {
+      margin: 25px 0;
+      flex-direction: column;
+      &__paragraph {
+        margin: 25px 0;
+        font-size: 1.3rem;
+        line-height: 14px;
+        width: 90%;
+      }
+      &__image {
+        width: 90%;
+      }
+    }
+    &-howItWords {
+      &__title {
+        font-size: 2rem;
+      }
+      &__information {
+        font-size: 1.3rem;
+        line-height: 14px;
+        width: 90%;
+      }
+      &__images {
+        width: 100%;
+      }
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .about {
+    &__title {
+      font-size: 3rem;
+      margin: 35px auto;
+    }
+    &-descripcion {
+      &__paragraph {
+        font-size: 1.9rem;
+        line-height: 20px;
+      }
+    }
+    &-howItWords {
+      &__title {
+        font-size: 2.7rem;
+        margin: 35px 0;
+      }
+      &__information {
+        font-size: 1.9rem;
+        line-height: 20px;
+        margin: 20px auto;
+      }
+    }
+  }
 }

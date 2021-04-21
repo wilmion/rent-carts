@@ -21,6 +21,7 @@ const AddOrEditProduct = lazy(() => import('../pages/AddOrEditProduct'));
 const PaymentDetail = lazy(() => import('../pages/PaymentDetail'));
 const AdminUserRentedProducts = lazy(() => import('../pages/AdminUserRentedProducts'));
 const NotFound = lazy(() => import('../pages/NotFound'));
+const About = lazy(() => import('../pages/About'));
 
 let loggeaded:boolean = false
 
@@ -52,6 +53,7 @@ const App:React.FC<{user:IUser | null}> = (props) => {
                         <Route path="/admin/add/:id" exact component={AddOrEditProduct} />
                         <Route path="/admin/payment/:id" exact component={PaymentDetail} />
                         <Route path="/admin/user/:id" exact component={AdminUserRentedProducts} />
+                        <Route path="/about" exact component={About} /> 
                         <Route exact component={NotFound} />
                     </Switch>
                 </Layout>
