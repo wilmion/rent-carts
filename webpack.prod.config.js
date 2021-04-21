@@ -1,7 +1,6 @@
 const path = require('path');
 const CssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
     entry : './src/index.tsx',
@@ -34,9 +33,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.DefinePlugin({
-            "process.env.CRYPTO_SECRET": JSON.stringify(process.env.CRYPTO_SECRET)
-        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'public/index.html'
