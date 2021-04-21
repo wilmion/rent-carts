@@ -13,7 +13,6 @@ import CartCardMoreDetails from '../components/CartCardMoreDetails';
 import { decrypt } from '../utils/decrypt';
 import { PATCH } from '../utils/API'
 import { getCookie } from '../utils/getCookie';
-import ConfigVars from '../config/index';
 
 import { IAction, ICart, IOrder, IPayment, IPaymentApi, IState, IUser } from '../models/interface';
 import "../sass/pages/payment.scss";
@@ -35,7 +34,7 @@ const Payment:React.FC<IProps> = (props) => {
 
     const generatePropsPaypalOptions = ():PaypalOptions => {
 
-        const payment:IPayment = decrypt(props.payments[0] , ConfigVars.cryptoSecret );
+        const payment:IPayment = decrypt(props.payments[0] , process.env.CRYPTO_SECRET);
 
         const config:PaypalOptions = {
             clientId: payment.data.clientID,

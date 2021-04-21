@@ -33,7 +33,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new Dotenv(),
+        new Dotenv({
+            systemvars: true
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'public/index.html'
