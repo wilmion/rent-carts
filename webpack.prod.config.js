@@ -33,6 +33,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env.CRYPTO_SECRET": JSON.stringify(process.env.CRYPTO_SECRET)
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'public/index.html'
